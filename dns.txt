@@ -1,0 +1,15 @@
+*DNS is the system that stores and manages URL names, known as domain names. this system is triggered when a url is typed, the browser sends a request to a server, that server narrows the request and sends another request to another server, then a third and fourth new request is sent till the domain name is paired with an IP adress. that IP adress is sent to the browser and it can finally display the file from the desired server.
+
+*you can manually complete these requests using bash code in a linux terminal, a complete log of these requests will show the path the requests made till it fiunally finds the IP adress of the server:
+
+-type: dig +trace www.google.com
+
+-when reading the log printed to the terminal look for keywords:
+
+*.root-servers-net = the root name servers repackage the request and send it to TDL(top level domain) 
+
+*.gtld-servers.net = The TDL repackages the request and sends it to the NS(Name Servers)
+
+ns*.google.com = NS finds the IP address
+
+66.199.151.* = The IP adress allows access to the requested file. all the IP adresses listed in the A rechords are the IPs of the website

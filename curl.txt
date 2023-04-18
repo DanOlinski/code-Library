@@ -1,0 +1,15 @@
+*curl is a comand for linux bash terminal, this code interacts with websites. This can work like a hacking tool or a code tester for a website. What this means is that it can access routs of the website even though they aren't accessable from the browser, as long as the rout exists in the server curl can access that feature. So if the website has features only set for registered users(links won't show in the browser), but if the rout doesn't check for cookies and authenticates a user when accessing a rout curl can access that feature
+
+*curl -X POST -i localhost:8080/urls/sgq3y6/delete
+-activates a POST rout for website localhost:8080 accessing the rout urls/:id/delete
+-this will either delete the sgq3y6 file if the rout doesn't check for a user access restriction. Or it will crash the server if the file doesn't exist and the rout doesn't handle that specific error (if the website is bombarded with the same error infinite ammounnt of times)
+
+*curl -X POST -i example.com --cookie "user_id=20126"
+this check saved coocie ID and attempts to access it if the cookie is not enctrypted a user can check his own ID then modify it slightly to attempt accessing another ID
+
+*The link has a list of comands for curl
+https://www.thegeekstuff.com/2012/04/curl-examples/
+
+*important commands
+-curl <url> = this will show you the content of the file from the requested url
+-curl -i <url> = this will show you some information about the file for the given url

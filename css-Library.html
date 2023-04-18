@@ -1,0 +1,288 @@
+<!-- Resetting stile (this code resets all default styles from any browser to null)
+ 
+http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+-->
+
+<!-- devTools
+-in chrome right click on an item/inspect (this will open the dev tools)
+-ctrl+shift+p: will open a command bar, here you can un-dock the dev tools panel, change to dark theme and more
+-to change something, highlight then inspect
+-if you want to apply a style to an element type something into the styles tab and you will be prompt with all options that resemble what you've typed
+-console: this is really useful to debug your code
+ctrl+shift+j = opens console
+type into console: console.log(whatever), or console.table(object), console.trace(whatever)
+the .trace will show you all of the paths that an action will trigger
+.table will display an object in a nice table 
+
+*You can simulate viewing your page from different devices
+there is an icon in the inspect mode of a cellphone and a tablet(ct6rl+shift+m also works). on the top there is a blank bar, you han hover over that bar and it will show you default sizes for diferent devices
+
+-->
+
+
+<!-- setting colors
+Colors are best defined using a code synthax called hexadecimal ex: #808080
+-->
+
+<!-- design links
+color palette generator: 
+free images: https://unsplash.com/
+fonts: https://www.canva.com/learn/the-ultimate-guide-to-font-pairing/ 
+https://www.fontsquirrel.com/
+vector icons: https://www.flaticon.com/
+css buttons: https://bttn.surge.sh/
+-->
+
+
+<!--charactaristics
+
+	
+	CSS is written inside HTML code, it's so much a part of html that is can be confused with html
+	
+	this url shows CSS synthax: https://learnxinyminutes.com/docs/css/
+
+
+	CSS can be written in 3 ways:
+	as an attribute(p is html code style is CSS): <p style="color: red" >text</p> 
+	inline(wrapping html code with a style to apply to everything inside the <style> tag): <style>{color: red}</style>
+	linking a external file(this is what is mostly used, when linking a file you'll need to use specific synthax to call diferend styling aspects of a file you want to apply to a file like using <div> for example to wrap elements to be centered etc): <link rel="stylesheet" href="style.css">
+	
+
+	
+	elements can be defined as ID or classes, the main diference is that an an id has to be unique to an element, but you can have the same class for many elements, also you can have multiple classes for the same item, Ex:<p class="bold underline">test</p> the paragraph has 2 classes applied to it, bold and underline. Classes are mostly used
+	
+
+	
+	<div></div>
+	div is used to seperate/divide your page into sections, with it you can set an attribute and a value to be applied to everything inside that div
+	<div color="red">(color is tre attribute and value is "red")
+	
+
+	
+	block elements vc inline elements
+	some elements like <p> or <div> will take up the entire horizontal space of the browser, even though you type a 2 word text there is an invisible box spaning the entire width of the browser
+
+	other elements only take up the space that you can see them taking up in the browser. These are calles inline elements like <a> for example
+-->
+	
+	
+<!--specificity
+
+if you set an item to look a certain way or placed at a certain location in your page but it doesn't show in the browser as expected or even nothing changes in the browser it usually because there is some CSS rule that has a priority on how that item should look and is over writing any additional styling code 
+-->
+
+<!--link a library
+	you can use icons or other elements from online libraries
+	to link a library into your HTML file go to the website https://cdnjs.com/
+	there you can search for a website library, like font awesome(hosted in  fontawesome.com). the cdnjs.com will create a link to that website for you (click in the </> icon to copy the link then paste it in the head of the HTML file)
+	Then you can go to the library website (example: fontawesome.com) and search for the icon you want to use, there you'll find a code to be added in the body of your HTML file and that code will be the icon (make sure you are adding icons that are free otherwise the icon won't show up in your rendered page)
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>cssLibrary</title>
+
+	<link rel="stylesheet" href="css-Library.css">
+</head>
+<body style="background-color: grey">
+
+<!--box, setting location. Parent set in stylesheet-->	
+<h1 class="flexValues">
+	<div>a</div>
+	<div>b</div>
+	<div>c</div>
+</h1>
+
+
+<!---->
+</body>
+</html>''
+
+<!--Media query 
+media query is a css tool that allows you to add a css style that will apply to a chosen media type(tv, mobile, pc, print, all) and chose a media feature(width, heigth etc)
+
+in order to use media query you need to add this to your html:
+<meta name="viewport" content="width=device-width"/>
+if you add the following to your meta tag you will disable zooming for mobile users(standard practice):
+initial-scale=1.0, maximum-scale=1.0
+also typically in the meta tag you'll have: charset="UTF-8"
+complete: <meta name="viewport" content="width=device-width", initial-scale=1.0, maximum-scale=1.0, charset="UTF-8"/>
+
+syntax: (write this on a stylesheet)(this example adds the css style when the page has a width max 600px or min 400px the style will apply)
+@media all and (min-width:400px), (max-width:600px){
+	.class{
+		color: red
+	}
+}
+
+*here are some common break points for different devices
+  @media only screen and (min-width: 320px) and (max-width: 420px) {
+    /* Write smartphone only styles here */
+  }
+
+  Another smartphone breakpoint
+  @media only screen and (max-width: 420px) {
+    /* Write smartphone only styles here */
+  }
+
+  Tablet:
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    /* Write Tablet only CSS here */
+  }
+
+  Another tablet breakpoint
+  @media only screen and (max-width: 1024px) {
+    /* Write CSS rules that target Tablets screen sizes downwards - including smartphones */
+  }
+
+  Another tablet breakpoint
+  @media only screen and (min-width: 768px) {
+    /* Write CSS rules that target Tablets screen sizes upwards - including desktops */
+  }
+
+  Laptops / Desktops:
+  @media only screen and (min-width: 1024px) {
+    /* Write CSS rules that target Laptop/Desktop screen sizes and beyond */
+  }
+
+  Laptops / Desktops:
+  @media only screen and (min-width: 960px) {
+    /* Write CSS rules that target small laptop screen sizes and beyond */
+  }
+-->

@@ -1,7 +1,7 @@
 
 //---select all (select brace ctrl+shift+L), collapse all(ctrl+shift+[)
 
-//---------------------mainfFunc-------------------
+//---------------------this is an object that contains function,and variables-------------------
 {
 
   let objectLiteral = {
@@ -33,7 +33,7 @@
    
 }
 
-//----loging text and variable in the same string and temperature interpolate----------------
+//----logging text and variable in the same string and temperature interpolate----------------
 {
 const kelvin = 293
 let celcius = kelvin - 273
@@ -230,7 +230,7 @@ for (let i = 0; i < animals.length; i++){
 }
 }
 
-//--------finds comon values between arrays------------
+//--------finds common values between arrays------------
 {
 let arr1 = [1,2,3,4,5]
 let arr2 = [4,5,6,7,8]
@@ -440,19 +440,7 @@ for (let i = 0; i < pets.length; i++){
 console.log(pets)
 }
 
-//--------forEach methood
-{
-var test = [12, 929, 11, 3, 199, 1000, 7, 1, 24, 37, 4, 19, 300, 3775, 299, 36, 209, 148, 169, 299, 6, 109, 20, 58, 139, 59, 3, 1, 139]
-//if divisible by 3 add 100
-test.forEach(function (item, index) {
-  if (item % 3 === 0) {
-    test[index] = test[index] + 100
-    
-  }
-}
-)
-console.log(test)
-}
+
 //--------------looping through every item in a nested array DOUBLE LOOP
 {
   var donutBox = [
@@ -509,32 +497,9 @@ for (let i = 0; i < varForObject.length; i++) {
 }
 
 }
-//-----------------for Each() loop-- priting every item in an object, this is a fery good way of storing and reteving data-----
-{
-  var donuts = [
-    { type: "Jelly", cost: 1.22 },
-    { type: "Chocolate", cost: 2.45 },
-    { type: "Cider", cost: 1.59 },
-    { type: "Boston Cream", cost: 5.99 }
-  ]
-  
-  
-  donuts.forEach(function(item){
-  console.log(item.type + ' ' + item.cost)
-  })
-  
-  //here is the same but using a basic loop
-  for (let i = 0; i < donuts.length; i++) {
-    console.log(donuts[i])
-  }
-  
-  for (let i = 0; i < donuts.length; i++) {
-    console.log(donuts[i]['type'])//best methood of accessing info from an object
-  }
 
-  }
   
-//---------accessing functions in an object (if needed after seing preious example)----------
+//---------accessing functions in an object (if needed after seeing previous example)----------
 {
 let facebookProfile = {
   //inner object scope variables
@@ -569,99 +534,7 @@ let facebookProfile = {
   console.log(facebookProfile.friends + ' FB friends')
 }
 
-//-----------reordering a nested object then outputting the highest value using sort methood---you can also use: array.sort()-that's all you need------
-{
-  const judgeVegetable = function (arr, itemAnalized) {
-    //sort methood 
-      arr.sort(function(a, b){ // a is the lowest value and b is the highest value
-      return b[itemAnalized] - a[itemAnalized] //this reorders from largest to smallest b-a(re order from b to a) bellow is a way better example
-     })
-    
-    final = arr[0].submitter //I'm selectineringg the first value of the nested object because the methood above reordered the items to keep the highest value at index 0, then navigating to the submitter value so that the name can be logged even though the item analized is redness or plumpness
-    
-      return final
-    }
-    
-    
-    const vegetables = [
-      {
-        submitter: 'Old Man Franklin',
-        redness: 10,
-        plumpness: 5
-      },
-      {
-        submitter: 'Sally Tomato-Grower',
-        redness: 20,
-        plumpness: 8
-      },
-      {
-        submitter: 'Hamid Hamidson',
-        redness: 4,
-        plumpness: 3
-      }
-    ];
-    
-    console.log(judgeVegetable(vegetables, 'redness'))//here 'redness is not a string to outbut, this is a refference to the item that is being analized(redness or plumpness), the reason why its between quotes is because of the way an item is referenced inside a nested object(check simple objects)
-
-    //-----------here is how to sort a simpler object
-    const judgeVegetable2 = function (arr) { 
-      arr.sort(function(a, b){
-      return a - b //this type of nested function needs 2 returns one here and one below. a represents the smallest number and be represents the largest. in this example the arr is sorted from smallest to largest
-     })
-    
-    final = arr
-      return final
-    }
-    
-    console.log(judgeVegetable2([5,6,1]))
-      
-}
-//-----------this code reproduces an action every 3000 miliseconds(it's like a loop)
-{
-  
-  const sayHello = function(){
-    //console.log('Hello');//remove coment out to run this code
-  }
-  
-  const timer = setInterval(sayHello, 1);
-  
-  clearInterval(timer); //this prevents the code from running infinetaly, you can lso use setTimeout to make the setInterval stop after it executed a certain mmount of times
-  }
-//----------setTimeout module
-{
-  //----this code runs after 3000 miliseconds
-const sayHello = function(){
-  console.log('Hello');
-}
-
-setTimeout(sayHello, 3000);
-
-//loops through array in order from smallest to largest
-{
-  const numbers = [900, 500, 52, 603, 59, 81, 1, 50]
-
-for (let element of numbers){
-  setTimeout(()=>console.log(element), element)//this logs each number in order because it sets the time equal to the value of each number in the array, so the higher numbers will execute after the smaller numbers (this doesn'e work for negative numbers)
-}
-}
-
-//this types a string slowly, the delay time encreases at each loop otherwise all the letters would be executed at the same time and it would't tipe the string slowly one letter at a time
-{
-  let delayInMs = 1000
-const stringExample = 'Hello World'
-
-const slowtiper = (string) => {
-  for (const letter of string){
-    setTimeout(()=>process.stdout.write(letter), delayInMs)
-    delayInMs += 200
-  }
-}
-slowtiper(stringExample)
-}
-
-}
-
-//------clear whitespaces before and after a string------then replace empty spaces within the string with %20-------
+//------clear white spaces before and after a string------then replace empty spaces within the string with %20-------
 {
   const urlEncode = function (text) {
     // variables
@@ -714,7 +587,7 @@ slowtiper(stringExample)
   console.log(urlEncode("blue is greener than purple for sure"));
 }  
 
-//---------------checking parking lot for space and outputing the coordinates of free space --------------
+//---------------checking parking lot for space and outputs the coordinates of free space --------------
 {
   
 
@@ -792,58 +665,9 @@ console.log(whereCanIPark(
   'motorcycle'
 ))
 }
-  //--------------js interacting with HTML----------
+
+//------------log from a given nested array repeated times. first value should be logged the second value should be the ammount of times the first value will be logged. The values have to be logged in groups and if there are multiple nested arrays the grouped numbers have to be seperated by a coma
 {
-  /* this wont work using the terminal, only on jsfiddle.net or running your HTML file in a browser to sets your code
-  
-  //----logging to the brouser
-  document.write('hello')
-  
-  //----logging to the DOM(a apce between visible browser and back end code)
-alert('text')
-
-  //------get a value from HTML and log it to the DOM
-  let elm = document.getElementById('connectToJs').innerHTML
-  alert(elm) 
-  //you'll hacve to have an item in the HTML set to for example <p id=connectToJs>message</p>
-  
-  //------get a class, create an array, loop over all values logging it in browser
-  //------get a class, create an array, loop over all values logging it
-var textFromHTML = document.querySelectorAll('p');
-for(let i = 0; i < textFromHTML.length; i++) {
-  document.write(textFromHTML[i].innerHTML);
-}
-  
-  //-------changing an element
-  var elm = document.querySelector('#info');
-  elm.innerHTML = 'JavaScript Rocks!'
-  alert(elm.innerHTML)
-  
-  //----changing an attribute(width) value and adding an attribute(hight) and giving a value of 20 to the new atribute
-  <img id='lhl-logo' src='https://cl.ly/2O3Y2w1R2j0v/Image%202016-07-20%20at%201.16.13%20PM.png' width='400' />
-  <script>
-  let imageRecise1 = document.querySelector('#lhl-logo').width = 500
-  let imageRecise2 = document.querySelector('#lhl-logo').setAttribute('height', '20')
-  </script>
-  
-  //---when a button is clicked a message is sent to the DOM-----
-  
-  <button id='my-button' onclick="buttonClicked('this is printed to DOM')"<!---the HTML comand: onclick is calling the function in javascript file just like one would call a function inside a js file--->
-  >
-    Click Me!
-  </button>
-
-  <script>
-  function buttonClicked(messageToDOM){
-    alert(messageToDOM);//here messageToDOM is a place holder for the HTML code: onclick="buttonClicked('this is printed to DOM')". in the HTML I am calling a function just like I would do in a js file
-  </script>
-
-
-  */
-  }
-
-  //------------log from a given nested array repeated times. first value should be logged the second value should be the ammount of times the first value will be logged. The values have to be logged in groups and if there are multiple nested arrays the grouped numbers have to be seperated by a coma
-  {
     let repeatNumbers = function (mainArr){
   
       let storeDataOnString = ''; 
@@ -881,89 +705,9 @@ for(let i = 0; i < textFromHTML.length; i++) {
     console.log(repeatNumbers([[1, 2], [2, 3]]));
     console.log(repeatNumbers([[10, 4], [34, 6], [92, 2]]));
         
-  }
-
-  //------------Command Line Arguments (CLA)------------
-  {
-    //CLA is text that shows in the terminal when a program runs or is being installed. there are many functions for this but one important is for debugging code
-    
-    for (let i = 0; i < process.argv.length; i++) {
-      console.log(i + '->' + (process.argv[i])); //precess.argv is an array containing the process run after node command
-    };
-
-  //type into the console.. node <file name.js> <type whatever you want>
-  //what this script does it loops over all of the comands that are running then it displays them to in order and displaying the number followed by ->
-  //this allows you to see everything the PC is doing and you can find at what process the error is
-
-  const sumCalculator = function() {
-    const args = process.argv;
-    let slice = args.slice(2)//slice(starting index,ending index); For removing the last character from the string we can use the starting index as "0" and the ending index as "sring. length - 1" or "-1"
-    let intConverter = []
-    let final = 0
-  
-    for (let i = 0; i < slice.length; i++) {
-      intConverter.push(1*slice[i]) //whatever is written in the terminal becomes a string so I have to convert the numnbers to integers so that they can be calculated. another way to convert it is by using in the final loop: final += Number(slice[i]) or final += (1*slice[i]) (this discarts the need for the first loop(the i loop))
-      //this is how you actually write this code: let var = process.argv.slice(2) (when you push to a variable you use var2.push(var).join(', '))
-    };
-  
-    for (let j = 0; j < intConverter.length; j++) {
-      final += intConverter[j]
-    };
-  
-    return final
-  };
-  
-  
-  console.log(sumCalculator());
-
-  //this can be used as a calculater where the user inputs into the terminal after node <fileName> to numbers seperated by a blank space and the console will return the result
-  }
-
-  //----------.assert methood---------------
-  {
-    //this methood works like an if statment but it outputs an error if the condition doesn't pass. this is used to check code for bugs
-    let message = 'number above is not even'
-
-for (let i = 0; i < 5; i++) {
-  console.log(i)
-console.assert(i % 2 === 0, '%o', {i, message})
 }
 
-//here is the most simple version
-console.assert (1 === 1)//nothing happens because it's true
-console.assert (1 === 3)// error
-
-//testing a code
-let wrongSum = function(a, b) {//this function is supposed to sum the numbers instead of multiplying them
-  return a * b
-}
-
-console.assert(wrongSum(1, 3) === 4)// this is checking if I'll get the expected result of the sum of a and b
-
-//this is a similar idea but it uses raw code to create a function that asserts another function you want to check
-let assertEqual = function(actual, expected) {
-  let final;
- 
-  if (actual === expected) {
-    final = `😎😎😎Assertion Passed: ${actual} === ${expected}`;
-  } else {
-    final = `😣😣😣Assertion Failed: ${actual} !== ${expected}`;
-  }
- 
-  console.log(final);
-};
-
-const head = function(item1) {
-  //console.log(item1[0])
-  return item1[0];
-};
-
-assertEqual(head([]), 8);
-assertEqual(head([5,6,7]), 5);
-assertEqual(head(['Hello', 'Lighthouse', 'Labs']), 'Hello');
-  }
-
-  //----------manipulating objects (best refference for dealing with objects)this function uses 2 entries(1 array and 1 object) it looks into the object to determain what items it will look for in the array then it detarmines how many times each item(the ones determined in the object) repeats in the array and outputs the result-----------
+//----------manipulating objects (best refference for dealing with objects)this function uses 2 entries(1 array and 1 object) it looks into the object to determain what items it will look for in the array then it detarmines how many times each item(the ones determined in the object) repeats in the array and outputs the result-----------
 {
 
 {//I love this methood, it's a nested loop that compares an aray with an object
@@ -1308,40 +1052,11 @@ assertEqual(head(['Hello', 'Lighthouse', 'Labs']), 'Hello');
   }
 
 }
-//filter methood (loops through arrays nicely)
-{
-  const numbers = [1,2,3,4,5,6,7,8,9,10]
-const evenNumbers = numbers.filter(function(numbersElement){
-  return numbersElement % 2 === 0 
-})
-//filtertakes in a function with an attribute, that attribute represents each individual item in the array it's looping through. the statement after return is like an if statement
-console.log(evenNumbers)
-}
-//-------.map methood------------
-{
-  var animals = [
-    {name: 'Fluffykins', species: 'rabbit'},
-    {name: 'Caro', species: 'dog'},
-    {name: 'Hamilton', species: 'dog'},
-    {name: 'Harold', species: 'fish'},
-    {name: 'Ursula', species: 'cat'},
-    {name: 'Jimmy', species: 'fish'},
-  ]
-  
-  const names = animals.map(function(animalsElements){
-    return animalsElements.name + ' is a '+ animalsElements.species
-  })
-  
-  const namesSort = animals.map(animalsElements => animalsElements.name)
-  
-  
-  console.log(names)
-  console.log(namesSort)
-  
-}
+
 // Recursions
 {
-  //this function is inside it's self so it repeats as long as it passes the if condition
+  {
+    //this function is inside it's self so it repeats as long as it passes the if condition
   function countEvenNumbers (number) {
     if(number <= 12) {//this sets the stopper
       console.log(number)
@@ -1369,8 +1084,32 @@ let printItems = function(arr){
 const array = ["A", [["B", ["C"]], [[["D"]], "E"]]];
 printItems(array);
 }
+
+//check for nested arrays and place pair into an object recursivly
+{
+  //the 1st item in the array will never be an array, so only check if the second item is an array. if the second item is in fact an array place a pair in the result object (key = 1st element, value = recursion). If it's not an array: key = 1st element, value = value.
+  //the recursion returns an object where the first value will always be printed as a key and the second value will either be an object with a key that has an object with a key(and so forth as long as the second value of the nested array is an array) or it will return a key and a value(if the second object is not an array) 
+  const deepArrayToObject = function(arr) {
+    const result = {};
+
+    for (const [first, second] of arr) {
+      if (Array.isArray(second)) {
+        result[first] = deepArrayToObject(second);
+      } else {
+        result[first] = second;
+      }
+    }
+
+    return result;
+  };
+  
+  console.log(deepArrayToObject([['a', 1], ['b', 2], ['c', [['d', [['e', 5], ['f', 6]]]]]]));
+  //result: { a: 1, b: 2, c: { d: { e: 5, f: 6 } } }
+}
+}
 //---------exporting modules
 {
+  {
   //export{} = For a function to be accessed it has to be exported first from the original file. 
   //Synthax: module.exports = functionOrObject //export after/below the function
   
@@ -1394,84 +1133,11 @@ allFunctions.functionIWant()
 */
 
   //it seems that when you require a file if you have a console.log in it it will show when you run the requiring file
-}
-//--------------.json
-{
-//every js project packaje comes with a .json file, it contains cutial information about the project. Following is an example:
-/*
-{
-  "name": "project-name",
-  "version": "1.0.0", //project version
-  "description": "Short project summary", 
-  "main": "index.js", 
-  "scripts": {
-    "myscript": "ENV=development node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "MIT", 
-  "dependencies": { //this lists all of the node packajes that need to be installed for the program to work 
-    "express": "^4.13.4" //package name is express and the numbers are the version of that package
   }
-}
-*/
-
-//to create a .json file tipe into terminal: npm init (you can simply hit enter to have the default values entered then edit the file in vsCode. However a lot of info here is written automatically, for example if we install a package in the folder where the .json file is in the dependencies section will be updated automatically) npm init -y(this command lets you create the file without having to press enter a bunch of times)
-
-//pakage-lock.json: this file is created automatically when you create your .json and install a package, this file also contains your github login and more info regarding your project, you should not edit this file unless you really know what you're doing
-
-}
-//-----------mocha and chai--------
-{
-//moca and chai are node packages that work together(they were designed seperetaly but they are now used together) to test code
-//these packages have to be installed in the directory you have your files in
-//before installing these packages you need to create a .json file
-
-//run: npm init (this creates .json file)(npm init -y creates a default .json file without prompting you with info to be added)
-//npm install mocha@9.2.2 chai --save-dev (this installs mocha package with developer dependencies(--save-dev))
-//open your .json and in the 'test' key replace the entry with "./node_modules/mocha/bin/mocha" (there might be 2 'test' fields, the one you want to edit is under the Debug section)
-//inside your project folder create 2 folders: test and javascript (these folders hold the test files and the javascript files as comon practice)
-
-//inside test folder create a file for testing a function. inside the test file add the following code:
-/*
-const chai = require('chai') //you can compine this line and the line below with: const assert = require('chai).assert
-const expect = chai.expect //this line can also be written with chai.assert
-const validator = require('../javascript/fileToBeTested.js')
-describe("The function functionToBeTested()", () => {
-it("should return true if there are between 2 and 5 group members", () => {
-    const array = ["a", "b", "c"]
-    assert(validator.functionToBeTested(array)).to.be.true
-  })
-  // another way:
-  // it("should return true if there are between 2 and 5 group members", (done) => {
-  //   const array = ["a", "b", "c"]
-  //   const testedFunction = functionToBeTested(array)
-  //   assert.isTrue(testedFunction(array))
-  //done()(use this only if you are testing async functions, done is also above as a argument of it callback)
-  })
-})
-*/ 
-
-//run: npm test or npx mocha(to execute mocha and test function)(you can also specify to test a single file: npm test test/test.js)
-
-/* the test above is testing the following function:
-exports.functionToBeTested = function(array) {
-  if (array.length >= 6) {
-    return false
-  } else if (array.length <= 1) {
-    return false
-  } else {
-    return true
+  
+  {
+   //when writing code that is parsed into the browser, you don.t need to export and require js functions you have stored in another files, you can call all functions from other js files even if they are located in a diferent file, but when you call script js files then in the HTML file the file links NEED to be in the right order (called functions above function that calls the functions), so that they can run
   }
-}
-*/
-
-//----chai---expect, assert, should
-//const chai = require('chai') //always do this first
-//const assert = chai.expect // you can use .expect or .arrest or .should
-//dependiong on what you chose your sinthax will have to change the content inside 'it' function(for assert: assert.isTrue(function()), for expect: assert(function()).to.be.true)
-//chose one of the three for your go to 
-// here is how to use each type: https://www.chaijs.com/
 }
 
 // writing code as objects example
@@ -1507,8 +1173,10 @@ exports.functionToBeTested = function(array) {
 
 // coading with classes instead of prototipes(this is when you create an object/variable without a class). in object oriented languages that are simpler, you can only have a function or object or variable if you created a class for it to be called uppon. js is both object oriented and function oriented, unlike many languages out there.
 {
+  //this example is a class with a constructor(a function that creates default variable(s)), and a function that adds whatever is passed into it to the variable created in the constructor
   class Pizza {//class is a type of object that sets default stated and behaviors/functions. To use these settings you have to create a variable and attribute it to the class (let variable = new Class() ). now you can use the class with the syntax of an object where the variable acts like an object and it's content is the content of the class, you can have diferent variables pointing to the same class but as you call methoods using each variable the changes will only be stored in the variable you used to called the function on
   
+      
     constructor(){//this naming convention is used to define any default function in a class
       this.toppings = ['cheese']
     }
@@ -1518,18 +1186,41 @@ exports.functionToBeTested = function(array) {
     }
   }
   
+  //a class on it's own means nothing, you have to create a variable and link it to the class, you can also create many variables that link to the same class(the class becomes a tamplate of info to start off your variable outputs)
   let pizza1 = new Pizza()
-  let pizza2 = new Pizza()
   
-  console.log(pizza1.toppings)
+  console.log(pizza1.toppings) //output: ['cheese']
   pizza1.addToppings('mushrooms')
   pizza1.addToppings('peppers')
-  console.log(pizza1.toppings)
+  console.log(pizza1.toppings) //output: ['cheese', 'mushrooms', 'peppers']
 
   //if you want to set default values in a class and use that class default patterns in other classes you use the followinf synthax: class MainClass {} then: class SecondaryClass extends MainClass {}
   //the SecondaryClass will inherit(name of this type of code) everything that is in MainClass. if you define a function or anything else inside a subClass that has the same name as a function that is inside the superClass you are then redefining that function and it will no longet inherit the parameters of that function in the superClass
   //supper: if you want to run a function from the superClass inside subClass in a diferent order than it appears in the superClass or even more than once even though it is decleared only once in the supeClass. you can call that function like this: super.functionYouWantToCall(). It sort of works like the 'this' keyword when calling something that is inside an object instead of using the object name
 }
+
+//------geters and seter
+{
+  class Pizza {
+    //you can run these functions without the keywords 'get' and 'set', the diference is when you call these functions insted of placing the argument between brackets(example: pizza.setSize('s')) you use variable notation as if you were re assigning a value to setSike (example: pizza.setSize = 's')
+    //there are 2 ways of creating getter and setter functions, either as functions or with the key words get and set
+    
+    set setSize(size) {//this sets a size but it doesn't return anything
+        this.size = size;
+      }
+    get getSize() {//this returns the size but this function doesn't tke in a parameter, so you have to run set size before running this. all this does is seperte into two tasks in case tht's what you need
+        return this.size;
+      }
+    }
+    
+    
+    let pizza = new Pizza();
+    pizza.setSize = 's';
+    pizza.getSize; // m
+    
+    console.log(pizza.getSize)
+}
+
 //find value that repeats the most ammount of times in an array
 {
   const mode = function(arr) {
@@ -1552,55 +1243,7 @@ exports.functionToBeTested = function(array) {
   
   console.log(mode([1,1, 2,2,2, 3,3, 4]))
 }
-//-------Multitsking or asynchronous
-{
-  //Call stack (locally processed code)
-  //Web API (code processed by another code provider)
-  //Call back Queue (after the API process is complete the return is stored here)
-  //Event Loop (this runs the returns from the Callback loop)(ahything scheduled to run in the future like seTimeout methood will be stored in the Event Loop)(the event loop can only start after the entire code in the js file(called main thread) has finished running).
 
-  //if you have an asyncronus function inside another function the parent function HAS to take in a function as an argument, a return statment will execute before the async function executes and it will always return undefined, check the following example:
-  const fs = require('fs');
-
-
-const breedDetailsFromFile = function(breed, callback) {
-  console.log('breedDetailsFromFile: Calling readFile...');
-  
-  fs.readFile(`./${breed}.txt`, 'utf8', (error, data) => {//for this to work there has got to be  file named 'Bombay'(first argument of the function determines the name of the file it's goint to read then output in the terminl)
-    
-    if (!error){
-      return callback(data)
-    } 
-  });
-
-};
-
-const printBreed = (breed) => console.log(breed)
-
-breedDetailsFromFile('Bombay', printBreed)
-
-}
-//------geters and seter
-{
-  class Pizza {
-    //you can run these functions without the keywords 'get' and 'set', the diference is when you call these functions insted of placing the argument between brackets(example: pizza.setSize('s')) you use variable notation as if you were re assigning a value to setSike (example: pizza.setSize = 's')
-    //there are 2 ways of creating getter and setter functions, either as functions or with the key words get and set
-    
-    set setSize(size) {//this sets a size but it doesn't return anything
-        this.size = size;
-      }
-    get getSize() {//this returns the size but this function doesn't tke in a parameter, so you have to run set size before running this. all this does is seperte into two tasks in case tht's what you need
-        return this.size;
-      }
-    }
-    
-    
-    let pizza = new Pizza();
-    pizza.setSize = 's';
-    pizza.getSize; // m
-    
-    console.log(pizza.getSize)
-}
 //------Dependency injection
 {
   //this is when you pass info into an object, this is a bank account app example
@@ -1732,332 +1375,6 @@ console.log(myAccount.accountBalance)
   
 }
 
-//----fs module. reads(can also write) info from a file
-{
-  /* (this code assumes that some .txt files have a single number in it and it adds the number from data1.txt with the number in file data2.txt)(te execute this code)
-const fs = require('fs')
-
-let totalSum = 0
-
-fs.readFile('./data1.txt', 'utf8', (error, data)=>{//utf8 is a text reader package, error means it will output an error if it can't read the file, data represents the data in the file it's reading
-  if(error){
-  console.log(error)
-  return
-  }
-  totalSum += Number(data) //converts string to number
-  //console.log(data)
-
-  fs.readFile('./data2.txt', 'utf8', (error, data)=>{
-    if(error){
-    console.log(error)
-    return
-    }
-    totalSum += Number(data) //converts string to number
-    console.log(totalSum)//this adds the numnbers of all files
-  })
-}) 
-*/
-
-/* creating a file with text from terminal
-const fs = require("fs")
-const data = process.argv
-
-fs.writeFile("./test_async.txt", data[2], (error) => {
-  if (error) {
-    console.log("Failed to write to file")
-    return
-  }
-  
-  console.log("Successfully wrote to file")
-})
-
-console.log('code above is asyncronous')
-*/
-}
-
-//-----creating an npm package
-{
-  //by creating an npm package your code can be used publically
-
-  //you'l need to create an account first: https://www.npmjs.com/signup
-  
-  //log into npm from your terminal: npm login
-  
-  //add a README.md file and edit your package.json file (check example in lighthouseLabs/lotide folder)(also your package should have an index.js file that requires all functions inside your package, then in .jason file set 'main': 'index.js')
-  
-  //npm publish --access public (after you are loged in and in your folder run this command to publish your package)
-  
-  //To see your public package page, visit https://npmjs.com/package/\*package-name\*, replacing *package-name* with the name of your package (the name is set in the .json file)
-  
-  //to download an npm package: 
-  //npm init -y (you have to have a .json file otherwise the package won't download)
-  //npm install packageName or packageName@1.2.3(desired versaion)
-  //installing npm packages can be really buggy, below is how to debug:
-  //try installing with sudo, if sudo doesn't work type sudo su(this will enter sudo mode and give you full permissions, to exit sudo su: ctrl+d))
-  //install nvm: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-  //the link above might be outdated if this doesn't work find an up to date link
-  //nvm is a npm manager, it installs all versions of npm then lets you select the npm version you preffer
-  //at this moment I know that npm version 15 works so to change to version 15 type: nvm install 15
-  //close and reopen terminal after messing with the npm versions
-
-  //after downloading the package you can require all functions: const _ = require('<packageName>')
-  //to call any function from that package: _.functionYouWant(arghuments)
-}
-//--------comanl line user intput, alarm(depending on the number(represents seconds)the alarm will ring at the given time)
-{
-  
-
-
-
-//to run type on terminal: node timer1.js 10 3 5 15 9 -4 tt
-// ignopre if empty dont run
-// ignore negative numbers
-// ignore NaN
-
-
-const timer1 = function() {
-  let arr = process.argv;
-  let intConverter =[]
-  
-  for (let i = 2; i < arr.length; i++) {
-      
-    intConverter.push(1*arr[i])
-      //console.log(intConverter)
-  }
-      for (let j = 0; j < intConverter.length; j++) {
-        //console.log(intConverter[j])
-
-      if (isNaN(intConverter[j]) || intConverter[j] <= 0) {
-      } else {
-        setTimeout(()=>process.stdout.write('\x07'), intConverter[j] * 1000);
-        //console.log(intConverter[j])
-      }
-    }
-  
-  
-};
-
-timer1();
-
-
-
-}
-//--------type in the terminal but info is not saved
-{
-  /*
-
-  process.stdin.on('data', (key) => {//when you run this code you can type in the terminal
-    process.stdout.write('.')
-  })
-  console.log('code above is asyncronous')
-
-  //this will hide everything you type on the terminal
-const stdin = process.stdin;
-stdin.setRawMode(true);
-stdin.setEncoding('utf8');
-
-stdin.on('data', (key) => {
-  process.stdout.write('.');
-  if (key === '\u0003') {
-    process.exit();
-  }//this recognizes ctrl+c(to exit the typing mode, without this you have to shut down your terminal to exit)
-});
-
-*/
-}
-//--------prompt the user with a question then store the answer
-{
-  /*
-  const readline = require('readline');//require readline
-
-  const rl = readline.createInterface({//create a place to store input and output. this creates an object FULL of info to process input and output
-    input: process.stdin,
-    output: process.stdout
-  });
-  
-  const questions = {
-    q1:'What\'s your name? Nicknames are also acceptable :) ',
-    q2:'What\'s an activity you like doing? ',
-    q3:'What do you listen to while doing that? ',
-    q4:'Which meal is your favourite (eg: dinner, brunch, etc.) ',
-    q5:'What\'s your favourite thing to eat for that meal? ',
-    q6:'Which sport is your absolute favourite? ',
-    q7:'What is your superpower? In a few words, tell us what you are amazing at! ',
-  };
-  const answers = {};
-  
-  rl.question(questions.q1, (answer) => {
-    answers.a1 = answer;
-    rl.question(questions.q2, (answer) => {
-      answers.a2 = answer;
-      rl.question(questions.q3, (answer) => {
-        answers.a3 = answer;
-        rl.question(questions.q4, (answer) => {
-          answers.a4 = answer;
-          rl.question(questions.q5, (answer) => {
-            answers.a5 = answer;
-            rl.question(questions.q6, (answer) => {
-              answers.a6 = answer;
-              rl.question(questions.q7, (answer) => {
-                answers.a7 = answer;
-                console.log('\n' + `Your Profile has been created: `);
-                console.log('Name:', answers.a1);
-                console.log('Preffered activity:', answers.a2);
-                console.log('Audio preference:', answers.a3);
-                console.log('Preffered meal:', answers.a4);
-                console.log('Preffered food:', answers.a5);
-                console.log('Absolute favorite sport:', answers.a6);
-                console.log('Superpower:', answers.a7);
-                rl.close();
-              });
-            });
-          });
-        });
-      });
-    });
-    
-  });
-  */
-}
-//-------intake a matrix(2D array) and transpose(invert rows into columns and columns into rows)
-{
-  //this function takes in a matrix (2D array) and transforms columns into rows and rows into columns
-const transpose = function (matrix) {
-  const rows = matrix.length; //determine ammount or rows
-  const cols = matrix[0].length; //determine ammount of columns
-  const outputMatrix = []; //declare the output array
-
-//you cant use push here because you are creating a nested array, the push notation won't work, you need to create the nested arrays then set values with '=' noptation. the loop bellow runns the same ammount of times as cols is set to. outputMatrix receives a certain ammount of arrays (j = cols).   
-  for (let i = 0; i < cols; i++) {
-    //j will be a rown set to have the length of matrix columns(this will invert columns into rows and rows into columns)
-    //j is set to be an empty array that holds an ammount of values
-    //Array creates an empty array with ammounts of values set to equal value of rows
-    outputMatrix[i] = Array(rows);
-  }
-
-//now that we have an empty matrix(2D array) we can assign a value for the empty slots in outputMatrix
-  for (let i = 0; i < rows; i++) {
-    for (let j = 0; j < cols; j++) {
-      //this notation works as opposed to .push()
-      //[j][i] = [i][j] this inverts rows to cols
-      outputMatrix[j][i] = matrix[i][j];
-    }
-  }
-  
-  return outputMatrix;
-};
-
-//this function takes in a matrix and prints is without showing the square brackets it will also ser each nested array into a new line
-
-const printMatrix = function(matrix) {
-  for (const row of matrix) {
-    for (const el of row) {
-      process.stdout.write(el + " ");
-    }
-    process.stdout.write("\n");
-  }
-};
-
-printMatrix(
-  transpose([
-    [1, 2, 3, 4],
-    [1, 2, 3, 4],
-    [1, 2, 3, 4],
-    [1, 2, 3, 4],
-  ])
-);
-
-console.log("----");
-
-printMatrix(
-  transpose([
-    [1, 2],
-    [3, 4],
-    [5, 6],
-  ])
-);
-
-console.log("----");
-
-printMatrix(transpose([[1, 2, 3, 4, 5, 6, 7]]));
-}
-//--------basuc promise
-{
-  //promisses
-const flipCoin = () => {//declare a simple function returning a Promise
-  return new Promise((heads, tails) => {//the promise takes in 2 functions(fulfilment of the promise or a rejection of the promise)
-    if(Math.random() > 0.5) {//this creates a random number between 0 and 1(50% chance of success and failure)
-      return heads() 
-    }
-    return tails()
-  }) 
-}
-
-flipCoin()
-  .then(()=> console.log("heads"))//this is what will happen if heads is triggered
-  .catch(()=> console.log("tails"))//this represents tails
-
-}
-//-------basic network connection syncronous
-{
-//to test this code create 2 js files (clien.js and server.js). then run the server file in one terminal and the client file in another terminal
-  
-/*server
-const net = require("net");
-
-
-
-const server = net.createServer();
-
-//this function opens a channel to be connected to. another device can only connect while this app is running in the terminal, as soon as the app is terminated the connection ends
-server.listen(3000, () => {
-  //this logs a message in the server terminal
-  console.log("Server listening on port 3000!");
-});
-
-//this function logs messages to confirm that the connection was established. the .on module is also called data hangeling
-server.on("connection", (client) => {
-  //the console log, logs a message in the server terminal
-  console.log("New client connected!");
-  //this logs a message in the clients terminal. however for the client to receive this message he needs to have a function for data handeling (check client file for conn.on function)
-  client.write("Hello there!");
-
-  //since everyone is listening in the network the message is encoded for protection
-  client.setEncoding("utf8");
-
-  //this get's anny log that the client sends to the server and logs it in the clients terminal
-  client.on("data", (data) => {
-  console.log("Message from client: ", data);
-});
-
-});
-
-*/
-
-/*client
-const net = require("net");
-
-//this function connects to a computer through an IP address and specified port
-const conn = net.createConnection({
-  // the keyword local host only works if you are connecting with yout own computer as a test. to connect to another computer you need to replace the keyword with the IP you want to connect to
-  host: 'localhost', 
-  port: 3000
-});
-
-//this get's anny log that the server sends to client and logs it in the clients terminal. the module .on is also called data handeling
-conn.on("data", (data) => {
-  console.log("Server says: ", data);
-});
-
-//this sends a message back to the server. but the server needs a function to receive this message(check server for more info on this)
-conn.on("connect", ()=>{
-  conn.write('thanks, client connected');
-});
-
-//this is a trnslator to convert key codes to the actual valeue of the typed key
-conn.setEncoding("utf8");
-*/
-}
 //----animation spinning line and dots
 {
   //spinning lines
@@ -2095,201 +1412,252 @@ const connectingAnimation = function(number) {
 };
 connectingAnimation(3);
 }
-
-  
 }
-//----async https request using request module 
-{//for this code to run you need to: npm init -y(crete a .json) then npm install request (inside the directory you have the file). this folder also has to be a git repo before you can install git init
-  /*
-  const request = require('request');
-request('http://www.google.com', (error, response, body) => {
-  console.log('error:', error.message); // Print the error if one occurred. if you place .message after error the terminal won't crash your app, it will only print the message log
-  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received(statusCode tells you if there is an error or not, and what error that is)
-  console.log('body:', body); // Print the HTML for the Google homepage.
-  //if you remove the response parameter the body info will change into a really big object. you'll have to find the key in that object that holds the body of the page, ex: instead of body, now you have to type body.body
-});
-//here is a great template:
-const fetchMyIP = function(callback) {
-  request('https://api.ipify.org?format=json', (error, response, body) => {
-    /the if statment handles unexisting url passed in
-    if(error) {
-      return callback(error.message, null)
-    }
-    //the if statment handles error from the API or a partially incorrect url. (code 200 means successful result)
-    if (response.statusCode !== 200) {
-      const msg = `Status Code ${response.statusCode} when fetching IP. Response: ${body}`;
-      callback(msg, null);
-      return;
-    }
-      const data = JSON.parse(body).ip;
-      return callback(null, data);
-    
-  });
-};
 
-
-fetchMyIP((error, ip) => {
-  if (error) {
-    return console.log("It didn't work!", error);
-  }
-
-  return console.log('It worked! Returned IP:' , ip);
-});
-
-*/
-} 
-//-------JSON modules
+////this code searches an item in a given array using binary search
 {
-//-------JSON modules (used for dada interchange format)(this converts data into a format that can be used, before JSON you had to use XML to convert that data and it was way more complicated)
- //if you chnge a page url from www to graph you will see the JSON file/object of tht page, the data should be well oginized with key and value pairs 
-//this is one form of API, where data is stored as JSON object and info can be easily gathered (find the url with the JSON object you want the use the reques module to request it, then you can use the fs module to store the gathered info)
-//converting data: when you request data from an API you should check the type of data: console.log(typeof body). typeof should be object (if typeof is a string you'll need to destarilize it: const data = JSON.parse(body) )
-const jsonString = '{"a":1, "b":2, "foo":"bar", "tt":"dd"}'; // string version of a JS Object
-jsonString // a string, of course :)
+const binarySearch = function(array, item) {
+  let min = 0
+  let max = array.length - 1
 
-const parse = JSON.parse(jsonString)//parsing or destarilization means removing quotes (this is used to convert data coming from an API)
-const starialize = JSON.stringify(parse)//starilize is to add quotes to all vlues in an object
-delete parse.foo//this is how you delete  key from an object
-console.log(jsonString)
-console.log(parse)
-console.log(starialize)
-
-
-}
-//----chaining or cascade or waterfall
-{
-  //this is when you place one function inside another in order to access the return value from the outer function.
-  //the example below is a combination of three functions that fetch data from an API then return some info. each function uses info from the outer function in order to run
+  //as long as return doesn't execute causing the code to stop, this loop will continue running
   
-  {//here is the full app
-    //the request functions below have some if statements aimed to handle error events (wrong url or wrong data passed in) without crashing the app but still outputting a helpful message regarding the error. These events are controlled by the callback arguments (check index.js on how these events are hangled within the commented out testing code)
-const request = require('request');
+  while (true) {
+    const middleIndex = Math.floor((min + max)/2)
+    const currentItemInLoop = array[middleIndex]
 
-//The functiopn informs the IP adress or the oc running this app via API request
-const fetchMyIP = function(callback) {
-  request('https://api.ipify.org?format=json', (error, response, body) => {
-    
-    //the if statment handles unexisting url passed in
-    if (error) {return callback(error.message, null)};
-    
-    //the if statment handles error from the API or a partially incorrect url. (code 200 means successful result)
-    if (response.statusCode !== 200) {
-      const msg = `Status Code ${response.statusCode} when fetching IP. Response: ${body}`;
-      callback(msg, null);
-      return;
-    }
-
-    const ip = JSON.parse(body).ip;
-    return callback(null, ip);
-  });
-};
-
-//The function takes in an IP adress and returns the coordinates of the given IP adress via API request
-const fetchCoordsByIP = function(ip, callback) {
-  request(`https://ipwho.is/${ip}`, (error, response, body) => {
-    //the if statment handles unexisting url passed in
-    if (error) {return callback(error.message, null)};
-    
-    //the if statment handles error from the API or a partially incorrect url. (code 200 means successful result)
-    if (response.statusCode !== 200) {
-      const msg = `Status Code ${response.statusCode} when fetching IP. Response: ${body}`;
-      callback(msg, null);
-      return;
-    }
-
-    const data = JSON.parse(body);
-    const coordinates = {latitude: data.latitude, longitude: data.longitude};
-
-    //The if statment handles an error where an incorrect ip adress is passed in
-    if (!data.success) {
-      const message = `Success status was ${data.success}. Server message says: ${data.message} when fetching for IP ${data.ip}`;
-      callback(message, null);
-      return;
+    if(currentItemInLoop === item) {
+      //
+      return middleIndex
+    } else if (currentItemInLoop < item) {
+      min = middleIndex -1
     } else {
-      return callback(null, coordinates);
-    }
-    
-  });
-};
-
-//The function takes in coordinates and returns the time th ISS will fly over those coordinates via API request
-const fetchISSFlyOverTimes = function(coordinates, callback) {
-
-  request(`https://iss-flyover.herokuapp.com/json/?lat=${coordinates.latitude}&lon=${coordinates.longitude}`, (error, response, body) => {
-    
-    if (error) {
-      return callback(error.message, null);
-    }
-    
-    if (response.statusCode !== 200) {
-      const msg = `Status Code ${response.statusCode} when fetching IP. Response: ${body}`;
-      callback(msg, null);
-      return;
+      max = middleIndex -1
     }
 
-    const nextPasses = JSON.parse(body).response;
-    return callback(null, nextPasses);
-  });
-};
-
-//The function runs all API requests above
-const nextISSTimesForMyLocation = function(callback){
-  //fetchMyIP will either return an error or an IP address.
-  fetchMyIP((error, ip) => {
-    //If an error is returned it will trigger the return event, meaning that all code after the return will not run
-    if(error){
-      return callback(error, null)
+    if (min > max) {
+      return null
     }
-
-    //if the IP is returned, and the error not triggered, the function below will run. However sinse the function below is inside fetchMyIP the arument 'ip' will receive the ip value (note that this argument's name has to be exactly the same as the argument in fetchMyIP, because stored in the fetchMyIP(ip) is the IP adress
-    fetchCoordsByIP(ip, (error, coordinates) => {
-      if(error){
-        return callback(error, null)
-      }
-
-      //here the same happens as above; coordinates is storing a value returned from fetchCoordsByIP. it can only be accessed this way because the function below is inside fetchCoordsByIP.
-      fetchISSFlyOverTimes(coordinates, (error, nextPasses) => {
-        if(error){
-          return callback(error, null)
-        }
-
-        callback(null, nextPasses)
-      })
-    })
-  })
+  }
 }
 
-module.exports = {fetchMyIP, fetchCoordsByIP, fetchISSFlyOverTimes, nextISSTimesForMyLocation};
+console.log(binarySearch([1,2,3,4,5,6,7,8,9], -5))
+}
+//Quadratic algorithms
+{
+  //Some search runtime increase exponentially when the length of the searched array increases 
+//this function takes a search that increases exponentially and solves it in a way that only increases linearly
+//check if any two numbers in that array can be added together to equal the input number(returns true or false if two numbers in the given array summed together equal to a given number(or false))
+//the way this is solved is by adding the lowest number wil the highest, then the second lowest with the second highest
+function arrayContainsSum(array, sum) {
+  //smallest values(assuming the array is sorted from small to large)
+  let i = 0;
+  //largest value
+  let ii = array.length - 1;
+
+  while (i <= ii) {
+    const element1 = array[i];
+    const element2 = array[ii];
+    const currentSumBeingChecked = element1 + element2;
+
+    if (currentSumBeingChecked === sum) {
+      return true;
+    } else if (currentSumBeingChecked > sum) {
+      ii--;
+    } else {
+      i++;
+    }
   }
 
-  /*
-  {//here each function is tested individually
-    
-    fetchMyIP((error, ip) => {
-      if (error) {
-        return console.log("It didn't work!", error);
-      }
-        //return ip
-      return console.log('It worked! Returned IP:' , ip); //75.159.93.227
-    });
-    
-    fetchCoordsByIP('75.159.93.227', (error, coordinates) => {
-      if (error) {
-        return console.log("It didn't work!", error);
-      }
-    
-      return console.log('It worked! Returned:' , coordinates); // latitude: 51.0486151, longitude: -114.0708459
-    });
-    
-    const coords =  {latitude: 51.0486151, longitude: -114.0708459};
-    fetchISSFlyOverTimes(coords, (error, nextPasses) => {
-      
-      if (error) {
-        return console.log("It didn't work!", error);
-      }
-      
-      return console.log('It worked! Returned:' , nextPasses);
-    });
-  }
-  */
+  return false;
 }
+}
+
+//Using js to create and manage tree data structures (contains examples of recursions)
+{
+  //check how to work with class and object oriented programming before reviewing this. also check getters and setters
+
+  //there we are creating a class that defines the data structure and contains functions to retrieve filtered information
+  class Employee {
+  //the constructor is a function that takes in 3 arguments and creates data info for an employee, each employee might or might not have employees working under him, also might or might not have a boss
+  constructor(name, title, salary) {
+    this.name = name;
+    this.title = title;
+    this.salary = salary;
+    this.boss = null;
+    this.subordinates = [];
+  }
+
+  //this function takes in a name and adds him as a subordinate under a specified employee: bossName.addSubordinate(subordinateName). it also adds into subordinateName.boss the bossName ('this' refers to the info typed before the dot: bossName.addSubordinate(subordinateName))
+  addSubordinate(subordinate) {
+    this.subordinates.push(subordinate);
+    subordinate.boss = this;
+  }
+
+  //this get function returns the amount of subordinates under a specified employee
+  get numberOfSubordinates() {
+    return this.subordinates.length
+  }
+
+  //this get function checks how many bosses it has above him. It uses a loop and as long as the value in this.boss is not null ('this' is the value before the dot: employeeName.numberOfPeopleToCEO), the loop will change the value of currentEmployee to the boss above the current employee and add 1 to the value of numberOfPeople.
+  get numberOfPeopleToCEO() {
+    let numberOfPeople = 0
+    let currentEmployee = this
+
+    while (currentEmployee.boss) {
+      currentEmployee = currentEmployee.boss
+      numberOfPeople++
+    }
+    return numberOfPeople
+  }
+
+  //this function compares 2 employees and checks if they have the same boss
+  hasSameBoss(employee) {
+    return this.boss === employee.boss
+  }
+
+  //this is a method of looking up every single item in a tree(called depth first). this method checks from root down to most nested leaf, then goes back up and repeats.
+  depthFirstTraversal() {
+    const final = []
+    //loops through subordinates array, triggering a recursion and console login every time
+
+    final.push(this.name)
+
+    for (const childNode of this.subordinates) {
+      let arrayLooper = childNode.depthFirstTraversal();
+      if(arrayLooper){
+        final.push(this.name)
+        return arrayLooper
+      }
+    }
+    return final
+  }
+
+  nameForWhoMakesOver(amount) {
+    let final = []
+    
+    if(this.salary > amount){
+      final.push(this.name)
+    }
+
+    for (const childNode of this.subordinates) {
+      //the first info placed on 'this' is set as the root of the tree to be checked. but every time the recursion runs 'this' has to be updated to the child of the root recursivly. So this variable resets the 'this value'
+      const subordinatesThatMakeOver = childNode.nameForWhoMakesOver(amount)
+      //this saves the previous info into final, so that it isn't lost
+      final = final.concat(subordinatesThatMakeOver)
+      }
+
+    return final
+  }
+
+  findEmployee(name) {
+    if(this.name === name){
+      return this
+    }
+    
+    for(let childNode of this.subordinates){
+      let final = childNode.findEmployee(name)
+      if (final) {
+        return final
+      }
+    }
+    
+return null
+  }
+
+  get totalNumberOfEmployees() {
+    let counter = 0
+    
+    for(let childNode of this.subordinates){
+      counter += childNode.totalNumberOfEmployees +1      
+    }
+  
+    return counter
+  }
+
+}
+
+//creating employees
+const ada = new Employee("Ada", "CEO", 3000000.00);
+
+const craig    = new Employee("Craig", "VP Software", 3000000);
+const arvinder = new Employee("Arvinder", "Chief Design Officer", 1000000);
+const angela   = new Employee("Angela", "VP Retail", 1000000);
+const phil     = new Employee("Phil", "VP Marketing", 1000000);
+
+const simone    = new Employee("Simone", "Employee", 200000);
+const ali       = new Employee("Ali", "Employee", 100000);
+const florida   = new Employee("Florida", "Employee", 15000);
+const david     = new Employee("David", "Employee", 200000);
+const brian     = new Employee("Brian", "Employee", 100000);
+const karla     = new Employee("Karla", "Employee", 120000);
+
+//adding subordinates to bosses and bosses to subordinates
+ada.addSubordinate(craig);
+ada.addSubordinate(arvinder);
+ada.addSubordinate(angela);
+ada.addSubordinate(phil);
+
+craig.addSubordinate(simone);
+craig.addSubordinate(ali);
+
+phil.addSubordinate(florida);
+phil.addSubordinate(david);
+phil.addSubordinate(brian);
+
+angela.addSubordinate(karla);
+
+
+//these logs display the info
+// console.log(craig.boss)
+// console.log(craig.numberOfSubordinates)
+// console.log(craig.numberOfPeopleToCEO)
+// console.log(craig.hasSameBoss(florida))
+//console.log(ada.depthFirstTraversal())
+//console.log(ada.nameForWhoMakesOver(100000))
+//console.log(ada.totalNumberOfEmployees)
+//console.log(ada.findEmployee('Simone'))
+console.log(ada.totalNumberOfEmployees)
+}
+
+//check object with bame results, output an array with names of players (don't repeat player's names)
+{
+  const allPlayerNames = function(outcomes) {
+    //even though I want to output an array the final result should be an object, becausde an object won't allow to have 2 keys of the same name. If I try to have final = [], when I push in the names the names will duplicate
+    let final = {};
+    for (let i of outcomes) {
+      //here I'm creating a pair value where only the key is useful to me, the entry is not going to be used so I set it to 'null' (it's in between brackets so that it doesn't break functionality since null is a specific data type that can trigger unexpected result)
+      final[i.winner] = 'null';
+      final[i.loser] = 'null';
+    }
+
+    //in order for the final result to be an array I am using Object module (this module turns an obkect into an array)
+    return Object.keys(final);
+  };
+  
+  console.log(allPlayerNames([
+    { winner: 'Alishah', loser: 'Bob',    loser_points: 3 },
+    { winner: 'Maria',   loser: 'Xu Jin', loser_points: 1 },
+    { winner: 'Elise',   loser: 'Bob',    loser_points: 2 },
+    { winner: 'Elise',   loser: 'Maria',  loser_points: 4 },
+    { winner: 'Alishah', loser: 'Maria',  loser_points: 2 },
+    { winner: 'Maria',   loser: 'Xu Jin', loser_points: 3 },
+    { winner: 'Xu Jin',  loser: 'Elise',  loser_points: 2 }
+  ]))
+}
+
+//have an argument pass in info into a callback
+{
+  const doShortly = function(callback, delay, data) {
+    //this will execute a function after a set ammount of time
+    setTimeout(
+      //my instinct would be to: callback(data). but this doesn't work. instead I need to have a function to wrap up the statement
+      function(){callback(data)}, 
+      delay);
+  };
+  
+  doShortly( (print)=>console.log(print), 1000, 'Print This In The Callback');
+}
+
+
+
