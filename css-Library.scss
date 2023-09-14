@@ -1,4 +1,4 @@
-<!-- Resetting stile (this code resets all default styles from any browser to null)
+/* Resetting stile (this code resets all default styles from any browser to null)
  
 http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -93,7 +93,6 @@ video {
 	vertical-align: baseline;
 }
 
-/* HTML5 display-role reset for older browsers */
 article,
 aside,
 details,
@@ -134,9 +133,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
--->
+*/
 
-<!-- devTools
+/* devTools
 -in chrome right click on an item/inspect (this will open the dev tools)
 -ctrl+shift+p: will open a command bar, here you can un-dock the dev tools panel, change to dark theme and more
 -to change something, highlight then inspect
@@ -150,24 +149,24 @@ the .trace will show you all of the paths that an action will trigger
 *You can simulate viewing your page from different devices
 there is an icon in the inspect mode of a cellphone and a tablet(ct6rl+shift+m also works). on the top there is a blank bar, you han hover over that bar and it will show you default sizes for diferent devices
 
--->
+*/
 
 
-<!-- setting colors
+/* setting colors
 Colors are best defined using a code synthax called hexadecimal ex: #808080
--->
+*/
 
-<!-- design links
+/* design links
 color palette generator: 
 free images: https://unsplash.com/
 fonts: https://www.canva.com/learn/the-ultimate-guide-to-font-pairing/ 
 https://www.fontsquirrel.com/
 vector icons: https://www.flaticon.com/
 css buttons: https://bttn.surge.sh/
--->
+*/
 
 
-<!--charactaristics
+/* charactaristics
 
 	
 	CSS is written inside HTML code, it's so much a part of html that is can be confused with html
@@ -196,45 +195,33 @@ css buttons: https://bttn.surge.sh/
 	some elements like <p> or <div> will take up the entire horizontal space of the browser, even though you type a 2 word text there is an invisible box spaning the entire width of the browser
 
 	other elements only take up the space that you can see them taking up in the browser. These are calles inline elements like <a> for example
--->
+*/
 	
 	
-<!--specificity
+/* specificity
 
 if you set an item to look a certain way or placed at a certain location in your page but it doesn't show in the browser as expected or even nothing changes in the browser it usually because there is some CSS rule that has a priority on how that item should look and is over writing any additional styling code 
--->
+*/
 
-<!--link a library
+/*link a library
 	you can use icons or other elements from online libraries
 	to link a library into your HTML file go to the website https://cdnjs.com/
 	there you can search for a website library, like font awesome(hosted in  fontawesome.com). the cdnjs.com will create a link to that website for you (click in the </> icon to copy the link then paste it in the head of the HTML file)
 	Then you can go to the library website (example: fontawesome.com) and search for the icon you want to use, there you'll find a code to be added in the body of your HTML file and that code will be the icon (make sure you are adding icons that are free otherwise the icon won't show up in your rendered page)
--->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>cssLibrary</title>
+*/
 
-	<link rel="stylesheet" href="css-Library.css">
-</head>
-<body style="background-color: grey">
 
-<!--box, setting location. Parent set in stylesheet-->	
+
+/*box, setting location. Parent set in stylesheet-->	
 <h1 class="flexValues">
 	<div>a</div>
 	<div>b</div>
 	<div>c</div>
 </h1>
+*/
 
+/*Media query 
 
-<!---->
-</body>
-</html>''
-
-<!--Media query 
 media query is a css tool that allows you to add a css style that will apply to a chosen media type(tv, mobile, pc, print, all) and chose a media feature(width, heigth etc)
 
 in order to use media query you need to add this to your html:
@@ -251,38 +238,163 @@ syntax: (write this on a stylesheet)(this example adds the css style when the pa
 	}
 }
 
-*here are some common break points for different devices
+//here are some common break points for different devices
   @media only screen and (min-width: 320px) and (max-width: 420px) {
-    /* Write smartphone only styles here */
+    // Write smartphone only styles here
   }
 
   Another smartphone breakpoint
   @media only screen and (max-width: 420px) {
-    /* Write smartphone only styles here */
+    //Write smartphone only styles here
   }
 
   Tablet:
   @media only screen and (min-width: 768px) and (max-width: 1024px) {
-    /* Write Tablet only CSS here */
+    Write Tablet only CSS here
   }
 
   Another tablet breakpoint
   @media only screen and (max-width: 1024px) {
-    /* Write CSS rules that target Tablets screen sizes downwards - including smartphones */
+    //Write CSS rules that target Tablets screen sizes downwards - including smartphones
   }
 
   Another tablet breakpoint
   @media only screen and (min-width: 768px) {
-    /* Write CSS rules that target Tablets screen sizes upwards - including desktops */
+    //Write CSS rules that target Tablets screen sizes upwards - including desktops
   }
 
   Laptops / Desktops:
   @media only screen and (min-width: 1024px) {
-    /* Write CSS rules that target Laptop/Desktop screen sizes and beyond */
+    //Write CSS rules that target Laptop/Desktop screen sizes and beyond
   }
 
   Laptops / Desktops:
   @media only screen and (min-width: 960px) {
-    /* Write CSS rules that target small laptop screen sizes and beyond */
+    //Write CSS rules that target small laptop screen sizes and beyond
   }
--->
+*/
+
+/*BEM: This is a method of naming and storing css styles
+Block: Encapsulates a standalone entity that is meaningful on its own. In our case this is the .day-list.
+Element: An element that is tied to its block. In our case this is the .day-list__item.
+Modifier: An modification to a block or an element. In our case this is .day-list__item---selected or .day-list__item---full.
+
+example:
+<li class="day-list__item">Default</li>
+<li class="day-list__item day-list__item---selected">Selected</li>
+<li class="day-list__item day-list__item---full">Full</li>
+<li class="day-list__item day-list__item---selected day-list__item---full">
+  Selected & Full
+</li>
+*/
+
+.flexValues {
+	/*these are flex values they work with any screen size*/
+	display: flex;
+	flex-direction: column;
+	justify-content: center;/*vertical alignments*/
+	align-items: center;/*horizontal alignments*/
+	/*the way of organizing elements in a website is by dividing elements in boxes there are parent boxes and child boxes(what determines this is by using nested <div>, then you order the elements in each div using flexbox. To find the flexbox codes you can use the inspect tool in chrome)*/
+}
+
+/*
+below is a naming system that permits you to have the second class starting off with the same styling as the 1st class, then whatever you add to the 2nd class will either add or overwrite whatever is in the 1st class. call the second class: class="button button--primary" or class=".button button--primary"
+*/
+.button {
+  background-color: transparent;
+  border: 0;
+  padding: 0.5em 1em;
+  box-sizing: border-box;
+  font-family: inherit;
+  color: inherit;
+}
+
+.button.button--primary {
+  background-color: navyblue;
+  color: white;
+}
+
+/*
+below there is an example of a hover event, the 1st class is the default style, the second class is the style added or overwritten when there is a hover event
+Event listeners (the limitations of CSS for listeners is that you can't prevent a page refresh and you can't retreive data from a form)
+*/
+.tweet {
+	display: block;
+	margin: 40px 0px;
+	padding: 10px;
+	border: 4px solid #545149;
+}
+.tweet:hover {
+	-webkit-box-shadow: 8px 8px 0px 0px rgba(197, 203, 227, 1);
+	-moz-box-shadow: 8px 8px 0px 0px rgba(197, 203, 227, 1);
+	box-shadow: 8px 8px 0px 0px rgba(197, 203, 227, 1);
+}
+
+
+{
+/*
+use scss with React
+npm install --save styled-components (check json file it might already be installed by default)
+npm i sass (you need this if you are going to use a .sass file)
+import styles from "../components/styles/category-card.scss";
+<div className={styles.test}/> (where .test is the class name inside the category-card.scss file)
+
+parent classes sometimes only work if they are composed by a single name
+*/
+
+/*
+scss import feature:
+For any scss code you need to have the extension scss
+You can import styles from other files
+To make a style available for other CSS files you have to declare it differently:
+*/
+/*create class in mixins.scss file*/
+@mixin button-active {
+  cursor: pointer;
+}
+
+/*import that class into another file*/
+@import "styles/mixins.scss";
+
+/*use that style in a  class*/
+.button:hover {
+  @include button-active;
+}
+
+/*
+scss compounding feature using the "&" 
+the day-list class below contains &... elements inside, this means that day-list has 3 variations of that class
+day-list; this is the default style. it has a listener for a hover event
+day-list day-list--selected; this has it's own styles that has the same styles of day-list, then builds on top of that. if you call the class simply as day-list--selected it will disconsider the day-list class default styles
+day-list day-list--faded; same as the above
+*/
+.day-list {
+	color: #8395a7;
+    height: 5rem;
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+	&:hover {
+		background-color: #ee5253;
+		cursor: pointer;
+		color: $dark-background;
+	}
+
+	&--selected {
+		background-color: darken($white, 5%);
+		color: $dark-background;
+
+		&:hover {
+			background-color: darken($white, 5%);
+		}
+	}
+
+	&--faded {
+		opacity: $inactive-opacity;
+	}
+  
+}
+
+}

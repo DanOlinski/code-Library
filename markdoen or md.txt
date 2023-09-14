@@ -1,0 +1,8 @@
+*Markdown is a language that formats your text into headers spacings etc, like what word does but using code
+
+*headers = # <your text> (this will create the largest header the more Asterix you place the smaller the header, so a sub header would be ##)
+*md files are used as README files in github
+
+*Here is a cheat sheet for codes in md
+https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+

@@ -1,0 +1,27 @@
+*Vim is a code editor like VSCode but it has some specific features like editing files through a remote VM, it’s also the default editor for git
+
+*How to launch it:
+-Vim runs in the terminal, so you need to install it in your VM terminal
+-To launch it type vim (but this will launch vim without a file opened and it will behave kind of strange
+Type: vim <fileName> this way you will enter the file with the VIM editor, if the file doesn’t exist it will create the file when you run the command
+
+*Modes
+-edit or insert: Edit mode is the state in which the keys you type on are actually inserted into your document (when in Edit mode there will be a message saying insert)
+-command: navigate through the document(using HJKL(arrows also work) Keys to move the coursor around and use other keys as commands to save and exit), search and replace text, copy and paste, etc (this is the default mode when you open a file) to change to Edit mode press i or a. to GO back to command mode press Esc (when in command mode there will be a message saying recording)
+In command mode to move arount use the keys HJKL
+-Quit mode: to enter quit mode type q(this mode is useless)
+-Commands: (casesensitive)(to type a command you need to go to command mode then type  :  )
+Esc = changes to command mode
+a or i = changes to edit mode
+Y=coppies a line
+yy=also copies
+P=pastes
+dd=deletes a line
+w = saves file
+q = quit mode. if at the bottom of the screen you don’t see ‘recording’ keep pressing q till it shows up (this will take you out of q mode and you will enter command mode). If there is nothing showing at the bottom you are in q mode and the program behaves strangly
+save=on command mode type     : + q +enter
+close vim=on command mode type     : + x +enter
+
+
+
+

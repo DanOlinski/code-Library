@@ -1,0 +1,18 @@
+*to check how much memory/RAM wsl has access to = free -mh
+
+*check CPU usage = type in terminal; top
+
+*Disable dev tools to make react faster:
+
+*There is a file
+-cd /
+-cd ect/sudo nano wsl.conf
+-to save in nano text editor: F3 (to close=F2)
+-You can add the following code to that file
+memory=10gb
+processors=8 (this one here is really what improves react server performance)
+
+*To restart wsl (the code below doesnt work you have to restart your pc):
+-use powershell, open it as administrator
+-run: wsl --shutdown
+-run: restart-service LxssManager

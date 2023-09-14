@@ -34,3 +34,32 @@
 
 <!-- jQuery library (place within head tag)-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!--clickable element element, html can handel events with their own listeners-->
+<div onclick="alert(`You just clicked this div.`);">Click Me</div>
+<!---->
+
+<!--here is another listener: onchange with a dropdown menu-->
+<script>
+  function displayInterviewer() {
+    //stores the value in interviewer list id into the variable
+    const currentInterviewer = document.querySelector("#interviewer-list").value;
+
+    //post a dynamic message to the browser depending on who is selected from the list that has an id of #interviewer-list. the messave is posted into the element that has an id of #interviewer-output
+    document.querySelector("#interviewer-output").innerHTML = `The currently selected interviewer is: <strong>${currentInterviewer}</strong>`;
+  }
+</script>
+
+<p>Select an interviewer from the list.</p>
+
+<!--the select element is a drop down menu, the onchange event runs the function declared in the script tag-->
+<select id="interviewer-list" onchange="displayInterviewer()">
+  <option value="Sylvia Palmer">Sylvia Palmer</option>
+  <option value="Tori Malcolm">Tori Malcolm</option>
+  <option value="Mildred Nazir">Mildred Nazir</option>
+  <option value="Cohana Roy">Cohana Roy</option>
+  <option value="Sven Jones">Sven Jones</option>
+</select>
+
+<p id="interviewer-output">The currently selected interviewer is:</p>
+<!---->

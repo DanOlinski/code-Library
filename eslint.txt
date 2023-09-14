@@ -1,0 +1,69 @@
+*ESLint is a tool that tells you what mistakes your code has (pretty damn cool
+
+*Firstly you need to install it in yout Linux VM: npm install –g eslint
+
+*eslint needs defined Standards/rules to follow 
+-you can download these Standards or use the code in the last item of this Page
+-the code is to be placed in a file called .eslintrc.json this file should be local(in the folder from wich you are running eslint). You can either create this file or use the code below to create this file
+npx eslint --init
+
+*using ESLint:
+- eslint <fileName>  = this will análise the file and report your errors (IF there are no errors nothing will show in the terminal after running eslint
+- eslint –fix <fileName> = this will fix issues that the program is able to fix the report the remaining errors
+-eslint . = this will análise all files within the folder you’re in
+-eslint . –fix = this will fix all files within a folder
+
+*ESLint Standards: create a repo in github, name it .eslintrc.dan coppy the code below into the repo, then run the following coman in Linux VM (this will download and install Standards for ESLint to use as reference 
+curl -o .eslintrc.dan <sherable url of your file>
+
+{
+	  "env": {
+	    "commonjs": true,
+	    "es6": true,
+	    "node": true,
+	    "mocha": true
+	  },
+	  "extends": "eslint:recommended",
+	  "globals": {
+	    "Atomics": "readonly",
+	    "SharedArrayBuffer": "readonly"
+	  },
+	  "parserOptions": {
+	    "ecmaVersion": 2018
+	  },
+	  "rules": {
+	    "indent": [
+	      "error",
+	      2
+	    ],
+	    "linebreak-style": [
+	      "error",
+	      "unix"
+	    ],
+	    "semi": [
+	      "error",
+	      "always"
+	    ],
+	    "no-var": "error",
+	    "no-console": "off",
+	    "no-unused-vars": "warn",
+	    "func-call-spacing": [
+	      "error",
+	      "never"
+	    ],
+	    "space-before-blocks": "error",
+	    "keyword-spacing": "error",
+	    "no-trailing-spaces": ["error", { "skipBlankLines": true }],
+	    "semi-spacing": "error",
+	    "func-style": ["error", "expression"],
+	    "space-infix-ops": "error",
+	    "space-in-parens": "error",
+	    "camelcase": "error",
+	    "eqeqeq": "error",
+	    "brace-style": "error",
+	    "space-before-function-paren": [ "warn", { "anonymous": "never", "named": "never", "asyncArrow": "never" } ],
+	    "func-names": ["error", "never"],
+	    "quotes": "off"
+	  }
+	}
+

@@ -1659,5 +1659,46 @@ console.log(ada.totalNumberOfEmployees)
   doShortly( (print)=>console.log(print), 1000, 'Print This In The Callback');
 }
 
+//Navigate through folders
+{
+  /*
 
+  ./<file Or folder Within The Same Directory You Are In>
+  
+  ./<folder  Within The Same Directory You Are In>/<file Or folder Within a nested Directory You Are In>
 
+  ../<file or folder located directly outside of the folder you are in>
+
+  ../../<file or folder located 2 folders outside of the folder you are in>
+  */
+}
+
+//Spread
+{
+  //if you want to manipolate an object or array but don't want to change/mutate the content of the origional you need to make a coppy. there are 2 ways you can do that, one is to use .push(for array) or newObj.key = origObj.key. But there is a better way called spread
+  const origionalObj = {sub:{}, key1, key2}
+  const origionalArray = [] 
+
+  const newObj = { ...origionalObj}
+  const newArray = [ ...origionalArray]
+  
+  //the above will only coppy one level deep, if you want to coppy a level deeper, use the following; where sub is the key in the object that contains a nested object
+  const newDeepObj = { ...origionalObj, sub: { ...origionalObj.sub}}
+  
+  //if you want to maintain the value of some but change the value for one of the keys, do the following:
+  const newChangedObj = { ...origionalArray, key2: 'whatever'}
+
+}
+
+{
+  //How to deal with and compate dates
+//there are many formats of dates, if you want to compare 2 dates(past date is smaller than future date) you 1st need to convert both dates to the same format. The preffered format is ISO because ISO disconsideres time zone, when converting to ISO format you convert the time zone to a centrlized time(like converting any time zone to greenwitch). Secondly you need to convert the ISO to parsed form (this form is an encoded number where a past time will be a smaller number when compared to a future time)
+let dateNow = new Date() //creates a new date at now in ISO 
+let pastDateNotIso = '2023-07-22 17:43:21.5650'//past date and time not ISO
+
+let convertPastDateNotIsoToIso = new Date(pastDateNotIso).toISOString()
+let parseDateNow = Date.parse(dateNow)
+let parsePastDate = Date.parse(convertPastDateNotIsoToIso)
+
+let compareDates = parseDateNow > parsePastDate //'date now is larger than past date(both parsed), should return true'
+}

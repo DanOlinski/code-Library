@@ -1,28 +1,49 @@
+*--max_old_space_size=10128 this allocates more memory to my macheine
+in order to use this command check the file oldSpaceSize.js
+
+*when you are workin in a local server point here is how you kill a port: npx kill-port 8080
+
 *to download a file using a url = wget <url>
+
 *ls = it tells you everything that there Is in a folder
 Ls �al =will show you even hidden system files within a folder
+
 *cd = C drive, this is the command you use before going to any directory of file
+
 *to use Secure boot click escape button	 (it will take you the password page) then chose MOK then Yes when you are prompt at reboot shutdown. This is also when you`ll be prompt  for the password (not when it turns on but when it`s shutting down.
+
 *inxi �G = brings up info on your graphics cards, you might need to install inxi first
+
 *nvidia-settings =brings up the settings (here is where you can see and switch between the main video card being used
+
 *installing something:
 -graphic mode: right click / open with other application/softwear install
 -code: sudo dpkg -I name-of-file
 -download and install: sudo apt-get install � = this is the command to install something you can type: sudo apt install (I think the get is to get is from the internet
 -unzip and install: sudo apt-get install unzip ...file name or :sudo unzip/ls/sudodpkg -I ..file name
+
 *Uninstalling 
 sudo apt autoremove �purge ...prog name
+
 *python3 �file name� = To run a file using pythion, make sure you`re in the directory othewise you`ll have to type the entire path 
+
 *TAB = will auto fill what you started texting according to anything that is similar to the first letters you`ve texted
+
 *ctrl+shift+I = this fixes the formatting of you code, there are many plugins that format your code difetently, vs already has one installed.
 Formatting means to place all the correct tab spaced and spacebar spaces to make the code look organized.
+
 *ctrl+shift+[ (fold) or ] (unfold) = with this you can hide/unhide sections of code 
+
 * rm file name =eletes a file
+
 *ctr+c = GETS YOU OUT OF A PROCESS
+
 *CTRL+SHIFT+C OR V =COPPY PAST
 *remove root restrictions: sudo nautilus /right click/properties/change owner to dan
+
 *Checking if a program is installed
 ProgramName --vertion
+
 *Virtual Machine (VM)
 -for you to work in a virtual machine you need to have a text file inside a folder that will link you to a machine. You`ll also need a program to run the VM on like VirtualBox. You`ll also need a program that will manage the synchronization between your VM and the server and a folder in your PC that mirrors the files you create in the server for example vagrant
 -go into your VM folder/vagrant up/vagrant ssh =acsesslghthouse VM.
@@ -35,8 +56,18 @@ You have to be logged into a virtual machine to do this
 When you are in a VM it is running from within a folder, that folder is considered the cd. So for example if the VM folder is called �VMfolder� and in it there is a folder called �newDir� to go into that newDirgolder you type into the comand line: cd newDir
 If you want to go back 1 folter type cd -
 -To reset machine back to factory mode go to virtualbox and delete the virtual machine in question. Then run vagrant up (this will download the machine from scratch) then run the machine using vagran ssh
+
 *mkdir=create new folder
+
 *node = this comand runs a js or html etc coding file, you run it by typing: node filePath.extenssion
 If you run node command on it`s own it`ll open space for you to code right into the terminal
+-you'll need to install npm(node package) and nvm(node version manager, allows you to change back and forth between node versions)
+npm install
+nvm install
+nvm use <16.0.0> (this switches to the node version you specify)
+nvm ls shows you all the versions installed
 
+*Ruby:
+just like above there is a rvm
+rvm list will show you all installed versions
 

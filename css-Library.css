@@ -1,9 +1,0 @@
-.flexValues {
-	/*these are flex values they work with any screen size*/
-	display: flex;
-	flex-direction: column;
-	justify-content: center;/*horizontal alignments*/
-	align-items: center;/*vertical alignments*/
-	/*the way of organizing elements in a website is by dividing elements in boxes there are parent boxes and child boxes(what determines this is by using nested <div>, then you order the elements in each div using flexbox. To find the flexbox codes you can use the inspect tool in chrome)*/
-}
-

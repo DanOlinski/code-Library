@@ -1,0 +1,26 @@
+*To create a collapsable reigon the key shortcut is under the search: create folding range. I think the default key shortcut is ctrl + K + ,
+
+*There is a plugin called bookmarks
+This will mark a place in your code for you to return to at the click of a link
+Place corsor in the line you want to add the mark
+Ctrl+shift+p
+Write: Boormarks: Toggle
+Use the boormark icon on the left of VsCode to find your bookmarks
+
+*ctrl+k+ctrl+f reorders the code format (also if you select the text and right click/format document)
+*comment out shortsut= select test you want to comment out then ctrl+/
+*sHORTCUTS
+Ctrl+backspace = deletes a word
+CTRL +shift+k= delets an entire line of code
+https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf
+
+
+*shift+alt =Select all text that is the same within a document
+*SHift +alt+ up/down arrow =this will add a coursor to the upper or lower line letting you select multiple lines of text at once
+*Select a text/ctrl+shift+L = this will select all occurences of the selected text so that you can replace all occurences of that text within a file
+*ctrl+space = damn, this tool suggests ydlou a list of usable code to be placed next, based on what has been coded previously on that string
+-The name of this tull is InteliSense
+*alt+up arrow =moves an entire line up or down
+*you can coppy an entire line if you ctrl+c without selecting anything, you can also shift+alt+up arrow to coppy a line up or alt-up arrow to move the content of a line to the line above
+*F2 = renames/changes an instance, you can select all instances (a code that refer to a specific type or object) then rename all of those instances usinf F2 button 
+*

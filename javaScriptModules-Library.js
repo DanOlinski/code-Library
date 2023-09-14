@@ -170,16 +170,21 @@ for(let i = 0; i < textFromHTML.length; i++) {
   //to run the folder you can either:
   //type into terminal: node server.js
   //use browser: http:\\localhost:3000
+
+  //most apps run some routs in other files, in order to do that you need to have all of the .use functions in the server file, then you can ser router files(check midterm app for more info on this)
   */
-  //.get is used to display/read data
-  //.post is used to create data
-  //.put is used to over write/replace/update data
+  //.get is used to request data from the server
+  //.post send data to the server to be processed
+  //.put is used to over write/replace/add new data in the db server
   //.delete is used to delete data
-  // put and delete are more complicated because they need HTTP Method Override tequnique, is you don't know how to use that you can complete the same tasks using .get methood
+  // put and delete are more complicated because they need HTTP Method Override technique, if you don't know how to use that you can complete the same tasks using .get method (this is for a scenario where you are sending data from an html form, for a database server that has no front end check description below)
+  //(when running a database server with no front end html form)put, post and delete routs can't be simply be accessed by going to the browser and typing a url, because the way the request works is that it expects to receive an object, when you go to the browser you can only request with a url and when an object is not received the rout crashes. The way of debugging such a rout is by using a software called postman. Download postman from https://www.postman.com/. make requests from postman and you can use console log in your local file to view the log in your server terminal
+  //to handel .put .delete or .post requests coming from a remote server into your database server(for example), express has to be able to handel incoming json formats, to make this possible add the following code to the express server setup file: app.use(express.json())
+
   //Check Tiny app for more info on express and interaction between express and ejs with HTML
   
   /*
-  This is an express server with a pool (check database application for more info)
+  This is an express server with a pool (check database application for more info)(remember to install pg package for pool module to work)
   
   const express  = require("express"); // Import the express library
   const app = express(); // Define app as an instance of express
@@ -198,20 +203,27 @@ for(let i = 0; i < textFromHTML.length; i++) {
   app.use(express.urlencoded({extended: true})) //this makes it possible to handel info coming from a form from the browser
   
   //below is a rount being rendered to the browser
+  //you can also use router.get()
   app.get("/hello", (req, req) => {
   
+  //whatever you place in values you have to use it in the query otherwise the entire program won't work
   const values = [`%${injection_from_user_1}%`, `%${injection_from_user_2}%`]
-  const querySting = `
+  const queryString = `
   SELECT id, name, cohort_id
   FROM students
   WHERE name = $2
   LIMIT $1;
   `
-  pool.query(queryString, values)
+  return pool.query(queryString, values)
   .then(res => {
-    console.log(res.rows);
+    //this actually returns an array of objects
+    return res.rows;
   })
-  .catch(err => console.error('query error', err.stack));
+  //another way of doing this is by wrapping the pool module inside a function. That way you can run the function as a promise: .then(function) => {res.send({ function })} .catch((error) => {res.send(error)})
+  //if you do it like it's described above don'e have the .catch() in the pool function
+  .catch(err => {
+    return err
+  });
   
   })
   
@@ -277,6 +289,23 @@ fetchMyIP((error, ip) => {
   //D
   delete users["5315"]
   console.log(users)
+}
+
+//Cookes how to handle cookies
+{
+  /*
+//This module handles information saved as cookies. It has the added benefit of encrypting the cookies.
+//npm i cookie-session
+let cookieSession = require('cookie-session');
+//app.use allows express to use required packages
+app.use(cookieSession({
+  name: 'session',
+  keys: ['abcd'],
+}));
+//to check the data/cookies saved: use the inspect tool in chrome /Application/Cookies in the browser
+//In a real world scenario you'll have 1 file for the server and other files to handel routs, in this case the app.use needs to be placed in the server file, even when using cookie-session in another rout handeler file(check lighthouselabs midterm project for a practical example of this)
+//below under password hashing there is an example of cooki-session being used
+*/
 }
 //password hashing (hashing is a encryption that in theorey cannot be decrypted)
 {
@@ -351,10 +380,10 @@ app.post("/login", (req, res) => {
 */
 }
 
-//event listeners and jQuery listener
+//event listeners and jQuery listener, for more examples check tweeter app from lighthouse labs course 
 {
   
-/* this html runs with this script
+/* this html runs with the javascript vanilla
 <html>
   <head>
     <title>My Page</title>
@@ -374,11 +403,10 @@ app.post("/login", (req, res) => {
 */
 
 /*
-//listen for double click event anywhere in the page
+//listen for double click event anywhere in the page (using javascript vanilla)
 document.addEventListener("dblclick", () => {
   alert("You just clicked somewhere on this page.");
 });
-
 
 // specify the element's ID in the HTML file using document.getElementById method and put that reference in a variable
 const div1 = document.getElementById("div-one");
@@ -395,36 +423,70 @@ div1.addEventListener("dblclick", () => {
 document.getElementById("div-two").addEventListener("click", (event) => {
   alert(event.x + ' ' + event.y);
 });
+*/
 
-//this listens to typed key events. To see what is inside the event object go to (in chrome) inspect / Console tab and watch the console become populated with info while you type in the form
-document.getElementById("form").addEventListener("keypress", (event) => {
-  console.log(event)
-});
+//here are more events you can use: https://developer.mozilla.org/en-US/docs/Web/Events
 
-//here are mor events you can use: https://developer.mozilla.org/en-US/docs/Web/Events
-
+/*
 //jQuery: this library uses a cleaner synthax and does some background processing so that your code works in any browser. It has it's own synthax
+//file structure is manditory: you'll need a folder called "public" in it you'll need another 2 folders: "vendor" and "scripts". in vendor you'll have a file called jquery-3.0.0.js (this file contains the code for jquery module), in scripts you'll have js files containing jquery functions(one file for each rout), and helpers.js for helper functions
+//You will need to import some stuff in the html file: 
+//<script src="/vendor/jquery-3.0.0.js"></script>(this is a file that has to be located in the referenced folder)
+//<script defer src="helper-functions-that-are-called-where-jQuery-code-is-written.js"></script>
+//<script defer src="file-where-jQuery-code-is-written.js"></script>
+// module.exports doesn't work with jquery or ajax so you need to import those files in the html code if you are using helper functions
 
+//in the file where the rout is running you have to have:
+router.post('/rout', (req, res) => {
+  console.log("api rout", req.body)//this is for debugging
+  res.json(req.body)//this is used by jquery to use the information
+})
+
+//bellow is how you start up jquery
 //this prevents server from accessing information that hasn't been loaded yet, since that would cause an error
 $(document).ready(function() {
+//shorthand version of the above: $(()=>{})
 
-//jQuery syntax for .addEventListener 
-$('#form').on("input", function(event) {
-  //$(this).val() is a useful Jquery function, when nothing is passed into .val() is will return a value if something is passed into .val('something') it will substitute whatever is in front of .val('something') using info from argument (ex: 'something')  
-  const textVal = $(this).val().length
-  //the correct way to access counter class is using jQuery: (check twitter app to see a better explenation of how this works)
-  $('.counter').val(140 - textVal)
+//this is a listener, it is waiting for a button(has a submit action) to be clicked. The button is in a form that form has: action="/rout" method="post"
+//the #search_form is referencing the id of the form
+$('#search_form').submit((event) => {
+  //when the button is clicked the code below prevents the page from refreshing into "/rout" url
+  event.preventDefault()
 
-  //this counts the info passed inside a text box, the counter starts at 140, when the value becomes negative change the text to red. if the amount of characters is decreased to 0 or anything above zero remove the red text class
-  //for this to work you need a css file w 2 classes: .container {color: #ffffff} and .counterRedText {color: red}
-  if(140 - textVal < 0) {
-    $('.counter').addClass('counterRedText')
-  } else {
-    $('.counter').removeClass('counterRedText')
-  }
-  });
+  //any console.log will only appear in the console of the inspect tool in chrome
+  //#title is an id of a text field inside the form, the command below accesses the text typed by the user
+  console.log( $('#title').val() )
+
+  //here is a very simple jquery function to test if things are working. click the "test text" and a message box should pop up
+  <div id="t">test</div>
+
+  //ajax is used to append info into html code
+  //the data object sends info to req.body ar the rout handler
+  $.ajax({
+      method: 'post', 
+      url: '/rout',
+      data: $('#title').val()
+    })
+      .then((response) => {
+        //response is an object coming from res.json at the router witch receives the submit values.
+        console.log(response)
+
+        //in order to append something into the html file you usually empty out the container first:
+        $('#div').empty();
+        //this appends 140 into a container that has an id of div
+        $('#div').append($(`<div>140</div>`));
+      })
+    })
 });
 
+$(document).ready(function() {
+  $( "#t" ).on( "click", function() {
+    alert( "Handler for `click` called." );
+  } );
+});
+
+
+//to work with listening events on items that are dynamically appended you will have to add the lojic in the function that renders the html to the dom(check midterm app for an example), place the following code at the very end of the function: $('.idSelectorFromItemCreatedInJavaScript', idSelectorFromContainerInActualHtmlFile).click((event) => {console.log('idSelector')})
 */
 }
 
@@ -451,8 +513,10 @@ const escape = function(str) {
 //-----refresh a server automatically with nodemon
 {
   //npm i -D nodemon = this package let's you run a server that will self refresh whenever you change code in your server file code
-// to run a file using nodemon you first have to edit the .json file, under the "script" section add: "start": "./node_modules/.bin/nodemon -L <express_server.js>", "dev": "./node_modules/.bin/nodemon -L <express_server.js>"
+// to run a file using nodemon you first have to edit the .json file, under the "script" section add: "start": "./node_modules/.bin/nodemon -L <express_server.js>", "dev": "./node_modules/.bin/nodemon -L <express_server.js>" (dont forget to remove angle brackets)
+//here is a shorter syntax: "nodemon -L server.js"
 //then in the terminal type npm run dev (npm start should also work since the code is set to execute at the "start command")
+//nodemon can get really slow to reload. type this code to allocate full memory when nodemon is reloading: NODE_OPTIONS=--max-old-space-size=4096
 }
 
 //-------database application connecting a sql database to js (check express server for the implementation of a server along w sql database)
@@ -478,9 +542,14 @@ FROM students
 LIMIT 5;
 `)
 .then(res => {
-  console.log(res.rows);
+  //this actually returns an array of objects
+  return res.rows;
 })
-.catch(err => console.error('query error', err.stack));
+//you shouldn't have this .catch if you are running this pool in a rout that is already catching errors
+.catch(err => {
+  console.error('query error', err.stack)
+  return err
+});
 
 */
 
@@ -488,21 +557,89 @@ LIMIT 5;
 /*
 this is how your code should look like(The $1 is identified by sql as injected information that should not be used as code, it also specifies the position it will retreive data from the values variable):
 
+//whatever you place in values you have to use it in the query otherwise the entire program won't work
 const values = [`%${injection_from_user_1}%`, `%${injection_from_user_2}%`]
-const querySting = `
+const queryString = `
 SELECT id, name, cohort_id
 FROM students
 WHERE name = $2
 LIMIT $1;
 `
 pool.query(queryString, values)
+.then(res => {
+  //this actually returns an array of objects
+  return res.rows;
+})
+//you shouldn't have this .catch if you are running this pool in a rout that is already catching errors
+.catch(err => {
+  console.error('query error', err.stack)
+  return err
+});
+*/
 
+/* 
+//this is how you create a query for a search button:
+//the options argument is an object that can contain a number of searchable filters
+const searchProperties = function(searchOptions, limit = 10) {
+  
+  const values = [];
+  let queryString = `
+  SELECT avg(property_reviews.rating) as average_rating, properties.*
+  FROM properties
+  JOIN property_reviews ON properties.id = property_reviews.property_id
+`;
+
+//this if statement check if any of the searchable filters where activated(added to the searchOptions object), if yes it adds that value and adds a query string to filter that object.
+
+//if options object is not passed in, js will crash since options.city won't exist, this if prevents js from crashing. if no filter is applied don't run the code
+if(options){
+
+  //you can't query with more than one WHERE, the next filters have to be wrttiten as AND, but we don't know which filter will be active first so this code adds a WHERE, before the correct query
+  if(Object.keys(options).length !== 0){
+    queryString += `WHERE `
+  }
+
+  //this will determine if there should be an AND added or not
+  let booleanOptions = false
+
+  if (options.city) {
+    //this will let the next filters use AND, since WHERE will already have been used. if city filter isn't activated WHERE will be used instead of AND by the functions below
+    booleanOptions = true 
+    values.push(`%${options.city}%`);
+    queryString += `city LIKE $${values.length}`;
+  }
+
+  if (options.owner_id) {
+    //if boolean is true it means a filter before this one was activated meaning I need to add an AND, and also set the boolean to true for the next filter to know it has to use AND
+    if(booleanOptions){
+      queryString += `AND `
+    }
+    booleanOptions = true
+    
+    values.push(`%${options.owner_id}%`);
+    queryString += `owner_id LIKE $${values.length}`;
+  }
+}
+
+//this part of the query has to always be present but it has to be at the end of the query that is why it is only added after the above is executed
+values.push(limit);
+queryString += `
+  GROUP BY properties.id
+  ORDER BY cost_per_night
+  LIMIT $${values.length};
+  `;
+  return pool
+    .query(queryString, values)
+    .then(res => {
+      return res.rows;
+    });
+};
 */
 }
 
 //-----creating an npm package
 {
-  //by creating an npm package your code can be used publically
+  //by creating an npm package your code can be used publically and installed just like you would install any other npm package
 
   //you'l need to create an account first: https://www.npmjs.com/signup
   
@@ -575,58 +712,7 @@ pool.query(queryString, values)
   
 }
 
-//-----------mocha and chai--------
-{
-  //moca and chai are node packages that work together(they were designed seperetaly but they are now used together) to test code
-  //these packages have to be installed in the directory you have your files in
-  //before installing these packages you need to create a .json file
-  
-  //run: npm init (this creates .json file)(npm init -y creates a default .json file without prompting you with info to be added)
-  //npm install mocha@9.2.2 chai --save-dev (this installs mocha package with developer dependencies(--save-dev))
-  //open your .json and in the 'test' key replace the entry with "./node_modules/mocha/bin/mocha" (there might be 2 'test' fields, the one you want to edit is under the Debug section)
-  //inside your project folder create 2 folders: test and javascript (these folders hold the test files and the javascript files as comon practice)
-  
-  //inside test folder create a file for testing a function. inside the test file add the following code:
-  /*
-  const chai = require('chai') //you can compine this line and the line below with: const assert = require('chai).assert
-  const expect = chai.expect //this line can also be written with chai.assert
-  const validator = require('../javascript/fileToBeTested.js')
-  describe("The function functionToBeTested()", () => {
-  it("should return true if there are between 2 and 5 group members", () => {
-      const array = ["a", "b", "c"]
-      assert(validator.functionToBeTested(array)).to.be.true
-    })
-    // another way:
-    // it("should return true if there are between 2 and 5 group members", (done) => {
-    //   const array = ["a", "b", "c"]
-    //   const testedFunction = functionToBeTested(array)
-    //   assert.isTrue(testedFunction(array))
-    //done()(use this only if you are testing async functions, done is also above as a argument of it callback)
-    })
-  })
-  */ 
-  
-  //run: npm test or npx mocha(to execute mocha and test function)(you can also specify to test a single file: npm test test/test.js)
-  
-  /* the test above is testing the following function:
-  exports.functionToBeTested = function(array) {
-    if (array.length >= 6) {
-      return false
-    } else if (array.length <= 1) {
-      return false
-    } else {
-      return true
-    }
-  }
-  */
-  
-  //----chai---expect, assert, should
-  //const chai = require('chai') //always do this first
-  //const expect = chai.expect // you can use .expect or .arrest or .should
-  //dependiong on what you chose your sinthax will have to change the content inside 'it' function(for assert: assert.isTrue(function()), for expect: assert(function()).to.be.true)
-  //chose one of the three for your go to 
-  // here is how to use each type: https://www.chaijs.com/
-}
+
 
 
 
@@ -774,7 +860,7 @@ slowtiper(stringExample)
   
   for (let i = 0; i < process.argv.length; i++) {
     console.log(i + '->' + (process.argv[i])); //precess.argv is an array containing the process run after node command
-  };
+  }; 
 
 //type into the console.. node <file name.js> <type whatever you want>
 //what this script does it loops over all of the comands that are running then it displays them to in order and displaying the number followed by ->
@@ -912,6 +998,15 @@ allFunctions.functionIWant()
   
   {
    //when writing code that is parsed into the browser, you don.t need to export and require js functions you have stored in another files, you can call all functions from other js files even if they are located in a diferent file, but when you call script js files then in the HTML file the file links NEED to be in the right order (called functions above function that calls the functions), so that they can run
+  }
+
+  //React export import syntax
+  {
+    //when writinf code for react module.exports doesn't work so you need to use a diferent syntax, however this sintax is not recognized by node so if you do have this code in your file you won't be able to run it in yout terminal using: node <filename.js>
+
+    //export default <function myFunction(){}>: this will only export one function, if the file contains more functions you will have to type the same as before but without the default
+
+    //import <functionName> from '<path>': this will import a function that was exported as: export default. if you want to import a function from a file where more than one function was exported you will have to do the following: import {<functionName>} from '<path>'
   }
 }
 
@@ -1244,10 +1339,74 @@ flipCoin()
   .catch(()=> console.log("tails"))//this represents tails
 
 }
-
+{//chainned promisse. using the same example as above this promise stacks .then(). this example shows that you can stack .then() or whateverFunction() and pass in a variable as an argument, that argument will carry the value returned from the previous function
+  const flipCoin = () => {
+    return new Promise((heads, tails) => {
+      if(Math.random() > 0.5) {
+        return heads() 
+      }
+      return tails()
+    }) 
+  }
+  
+  flipCoin()
+    .then(()=> console.log("heads"))
+    .then((whatever) => console.log(whatever))//whatever carries the same value returned by the .then above
+    .catch(()=> console.log("tails"))
+}
 
 //for apps bellow: To use promises with request(requesting html) you need to install a package: npm i request-promise-native)(then you need to require it: const request = require('request-promise-native')
 //if you are just usinr request methood then: npm init -y(crete a .json) then npm install request
+//However the request module has been discontinued, so now we need to use node-fetch for API requests. Another really good API requester is axios(check react file for more on how to use axios)
+
+//Here is a simple node-fetch (axios is WAY better(check react file for more info))
+{
+//npm install node-fetch@2 for this to work
+//const fetch = require('node-fetch');
+
+//this token comes from https://aka.ms/ge (this is the microsoft graph site)
+//this is the authentication for me to access the info
+const token = "EwCQA8l6BAAUAOyDv0l6PcCVu89kmzvqZmkWABkAAU1g0f1qujFk19WLLQ82wK9yu1+MMAEZBmow/6Q/IhFcIdyfhK3ae18cuDyxdl8kE73z7PgtsXEefZwMuS8coNTrcCXmq8b1NojOFgPcKMjdna/IpPACLJItXszDH4Ol5XmFkdmFv0DTFciMlUXLjFmZUgbYH/UQfr2or2qv+XDUBso1n4ryivAtV+14JDPBgxkjH1AbYwNJ+Po9EchJutvk8znZ78ec5sxflyQS170mgVnxzjAg661ca60wmW4r14sc4Yu2F4Iu/AZxqaCnvI4nWDTZ/S85VYJ7rolyyYOQddt2zjMcidun6AwbeTPhzEkdamCeuGb6b1UWRqevNqADZgAACC4iEo5JXf/oYAKO1l6WBwBdEEDJhpQTlkCvvuEm9s/2EaQ8IoJUY0za2c+OBWZpB/WB+cATD86wThwyJP9hWLn1uD3EOdzuc1VX8TFbtKHHrLrVB4FEjLqaGYI9mcn0g0i0EMCcCivq7Gbfxih7M9BdUmk8USWovAGTlSKZwtPULF8HhnKYwHzl4FJOR2OrbFawu6Yt6uBmpB9wxcfAgwviVjloMBedgCckMLSd6FZmL60+jeZ9S+NPy3Zyr8JgNbzJy7z6f5SFU4avgnJe0MUpnNzLgkpbfaJew6PEgoZLrZo3/+B0Js1a4+inCkOdvb1vockzNhaC4zeZLtm4rqCp6EU0FPWsGzmCppAHEuDNEQo/zAyfD7LYrot8W+UL2l92fMx6/vhKLI1SVNntYOV9X/AGL9IEX39XJqht4qABFBGcaLa3/pIH7srSqyG0RpdiUYwHlejRyIcF5dC/6LN8XHIoTyUpRVKA28ly5qyenSdUoO+c9aqFxpNqDTe8DymG6jL2FFxSClYkFRm1t2f4S2rmfu4WZQUzcuRyszrNQ9r/7dc5aQd8o0/sagiaMDE3pb+J/sttwUn/KyCnXL9h2iQULF3xs9bsAqNFED1z3q1MLx2i+0+J0hxjw5gh8pO7d9+O9uhGux6uaUUBNj8r0CfnQgF0bqcj5qjKfW7MDvcvKH+S5gEPiW+WiEHmk7e1X5BDQfWTSSaCw0J7u/F0qGc9r64YT4G65sRzN5h3hAObz/JuhSEByhcJsyssRdLG5sEqVDNEHs4lm8U7xgWLhmFfJe80wuwYGiRRIftJuBwGHpsoM+jHoaMC"
+
+
+const fetchAPI = () => {
+  return fetch(
+    //this is the url
+    'https://graph.microsoft.com/v1.0/users/daniel.guterres@hotmail.com',
+    {
+      headers: {
+        //this is the authentication
+        "Authorization": `Bearer ${token}`,
+        //this determains the tipe of info I want to fetch
+        "Content-Type": "application/json"
+      } 
+    }
+  )
+}
+
+fetchAPI()
+  .then((response) => {
+    
+      //if I want to send the information to be processed somewhere else I would use return response.json. this would return a promise that would have to be resolved by the receiver of this info. If I want to resolve it here I can do as follows:
+      response.json()
+      .then(
+        (res) => {
+          console.log(res)
+        }
+      )
+  })
+}
+
+//Here is a simple request
+{
+  //this get's the IP of your PC
+const fetchMyIP = () => {
+  return request('https://api.ipify.org?format=json')
+}
+
+fetchMyIP()
+  .then((body) => {console.log(body)})
+}
 
 //bellow are 2 app examples completing the same task the first one uses chaining and the second one uses promise (the apps below get info from an API and inform what time the ISS will pass overhead at your location)
 {
@@ -1470,3 +1629,76 @@ func(notDefinedVariable)
 console.log(error.message)
 }
 } 
+//timeago or time ago
+{
+  /*
+  <!-- js library to calculate how much time has elapsed since a post was made. For this code to run you either have to import the module in the html code or download it as a module in the directory where the app lives. Here is the synthax for how it should be used in a .js file: timeago.format(dateTweetWasPostedInNumericFormat)-->
+    <script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" 
+    integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer">
+  </script>
+  
+  */
+}
+
+//serve npm package
+{
+  //npm install -g serve
+  //install globally in order to see the created files in the browser. when you navigate to a folder and type serve you can open a local host session in your browser and you will see all files within that folder
+  
+}
+
+//jest a web app testing framework
+{
+  //when jest is installed you can start is by typing "npm test" (if that's whats specified in the json file). type: 'a' to run all tests, it also runs tests automatically when there is a change to a file in the project
+}
+
+//storybook runs with react there are more examples in the React/scheduler directory in LHL course
+{
+  //this is a website where you can add react components and render to the browser in order to test the elements in a semarate environment
+  
+  //setting up storybook: you need to install the storybook module. I haven't done that yet so I'm not sure how
+
+  //serving srotybook: before serving you need to make sure storybook is defined in your .json file as bellow, then type in the terminal: npm run strat-storybook
+  //"storybook": "start-storybook -p 9009 -s public --ci"
+
+  //index.js: storybook renders to the browser a page based on a single file in a folder located at root: stories/index.js
+  //the code below creates a section where you can add components to test:
+  /*
+  import React from "react";
+
+  import { storiesOf } from "@storybook/react";
+  import { action } from "@storybook/addon-actions";
+  
+  //import a file containing an element you want to work on
+  import DayListItem from "components/DayListItem";
+
+  //create a space in the browser page to test the element
+  storiesOf("DayListItem", module)
+
+  // Provides the default background color for our component
+  .addParameters({
+    backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+  })
+  
+  //we call add() once for each state of the element you want to test
+  .add("Unselected", () => <DayListItem name="Monday" spots={5} />) 
+  ));
+  */
+}
+
+//shell commands
+{
+//shell command is like typing a command into the terminal in order to execute an action, here is how you do it
+//the following command runs "ls" showing you a list of files in the folder you are in:
+
+/*
+const execSync = require('child_process').execSync;
+
+const output = execSync('ls', { encoding: 'utf-8' });
+
+console.log('Output was:\n', output);
+*/
+}
