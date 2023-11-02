@@ -3,7 +3,7 @@ but this is useless because its not like a linux terminal where you have access 
 -There is a second Windows terminal (you find it by searching PowerShell) 
  
 
-*wsl = this is a program that allows you to open a linux terminal inside of windows. To install it type wsl –-install in windows command prompt 
+*wsl = this is a program that allows you to open a linux terminal inside of windows. To install it type wsl –-install -d Ubuntu in windows command prompt 
 
  
 
@@ -23,8 +23,9 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
  
 
--Update kernel package for WSL (google how to do this or run the msi file I saved in a folder called Setting up WSL) 
-
+-Update kernel package for WSL below are a fiew options
+(google how to do this or run the msi file I saved in a folder called Setting up WSL(only located in my PC)) 
+(To run WSL from the Microsoft Store, with more frequently pushed updates, type in the command prompt wsl.exe --install
  
 
 -RUN THE FOLLOWING CODE TO SET wsl2 AS DEFAOULT: 
