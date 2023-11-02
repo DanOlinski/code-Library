@@ -38,15 +38,12 @@ wsl --set-default-version 2
 
 -run this code in windows terminal to make this specific directory: cd $env:LOCALAPPDATA ; mkdir LHL (this directory will be cerognized by the virtual linux that I am using from the LHL course)
 
- 
 
--Run this command substitute YOU for username (LHL is the folder you created above. The file LHLv1.1.tar is in the “Setting up WSL” folder): wsl.exe --import LHL C:\Users\**YOU**\AppData\Local\LHL C:\Users\**YOU**\Downloads\lhl-v1.1.exe --version 2 
-
- 
-
-The file LHLv1.1.tar is the virtual machine, you can download this file from the page below. scroll down and fine a link named "Download the archive"
+-The file lhl-v1.1.exe is the virtual machine, you can download this file from the page below. scroll down and fine a link named "Download the archive"
 https://flex-web.compass.lighthouselabs.ca/p/1/workbooks/web-flex-prep/activities/2308?workbook=35
+run the file, it will extract another .tar file, that will then be accessed when you run the code below
 
+-Run this command substitute YOU for username (LHL is the folder you created above. The file lhlv1.1.tar is in the “Setting up WSL” folder): wsl.exe --import LHL C:\Users\**YOU**\AppData\Local\LHL C:\Users\**YOU**\Downloads\lhl-v1.1.tar --version 2 
  
 
 -install an app from windows store app called Windows Terminal 
