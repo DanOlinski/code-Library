@@ -40,7 +40,7 @@ wsl --set-default-version 2
 
  
 
--Run this command substitute YOU for username (LHL is the folder you created above. The file LHLv1.1.tar is in the “Setting up WSL” folder): wsl.exe --import LHL C:\Users\**YOU**\AppData\Local\LHL C:\Users\**YOU**\Downloads\LHLv1.1.tar --version 2 
+-Run this command substitute YOU for username (LHL is the folder you created above. The file LHLv1.1.tar is in the “Setting up WSL” folder): wsl.exe --import LHL C:\Users\**YOU**\AppData\Local\LHL C:\Users\**YOU**\Downloads\lhl-v1.1.exe --version 2 
 
  
 
