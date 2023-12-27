@@ -62,7 +62,7 @@
     Removes this tool and copies build dependencies, configuration files
     and scripts into the app directory. If you do this, you can’t go back!
 
-  -this goes in the main page before the app is rendered (folder; src and in the file index.js). I'm honestly not sure what this is, the app can run without this script, in fact when I add this it crashes the app.
+  -this goes in the main page before the app is rendered (folder; src and in the file App.js). I'm honestly not sure what this is, the app can run without this script.
 
 import { disableReactDevTools } from '@fvilers/disable-react-devtools'
 disableReactDevTools()
