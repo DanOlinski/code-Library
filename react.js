@@ -1,23 +1,23 @@
-//to use react in versions of node older than 17 you need to type at the top of your js file: import React from 'react'. If you are running windows you migt have to install some stuff(follow the instructions in LHL React Module 7 I think)
+//to use react in versions of node older than 17 you need to type at the top of your js file: import React from 'react'. If you are running windows you migt have to install some stuff(follow the instructions in LHL React Module 7, or follow instructions below)
+//install npm in your machine; https://nodejs.org/en/download/
+//download and install nvm in your machiene; go to: https://github.com/coreybutler/nvm-windows/releases Choose nvm-setup.exe under Assets.
+//install; nvm intall v16
+//set the version to be used by the PC; nvm use v16
 
-//react-server
+//react-server general info
 {
   /*
-  you can alsop try running the app from windows terminal instead of running it from a linux(wsl) terminal
-
--this goes in the main page before the app is rendered
-import { disableReactDevTools } from '@fvilers/disable-react-devtools'
-
-disableReactDevTools()
+  you can run the app from windows terminal instead of running it from a linux(wsl) terminal, it goes WAY faster
   */
 
   /*
-  the react template runs on it's own server that's why the start key set in .jason file points to a command instead of a file. react server can also auto refreshes so you don't need to use noedmon. but you need to set up a .env file
+  the react template/app runs on it's own server that's why the start key set in .jason file points to a command instead of a file. react server can also auto refreshes so you don't need to use noedmon. but you need to set up a .env file
   "scripts": {
     "start": "react-scripts start"
   }
 
-  you can add code to the start key: start: "start": "CHOKIDAR_USEPOLLING=true react-scripts start"
+  you can add code to the start key, this is used to make react refresh automatically when executing the server from a linux terminal, however a react app runs really slow when running from a virtual machiene so use the terminal from your PC to run it; 
+  start: "start": "CHOKIDAR_USEPOLLING=true react-scripts start"
   but the correct way of adding code to run at start is to create a .env file in the root directory and in it place any code you want to run at start
   
   if the above doesn't work use this instead: FAST_REFRESH=true WATCHPACK_POLLING=true
@@ -32,16 +32,19 @@ disableReactDevTools()
   */
 }
 
-//npx create-react-app
-//https://vitejs.dev/guide/ (here there is a discrption for setting up a react app that loads way faster when starting and refreshing the server)
 {
-  //this is a package that sets up a template react project 
-  //make sure you use a node version that works(v 16 is the oldest version that works with react)
-  //type the following command to create a react template: npx create-react-app example-app
+  /*
+  make sure you use a node version that works(v 16 is the oldest version that works with react).
+  check installed versions; nvm ls
+  install; nvm intall v16
+  set the version to be used by the PC; nvm use v16
+  */
+
+  //command to create a react server; npx create-react-app <folder-where-the-app-will-be-created-in>
+  //https://vitejs.dev/guide/ (here there is a discrption for setting up a react app that loads way faster when starting and refreshing the server)
+  
   //after installation:
   /*
-  it will create a commit: Created git commit.
-
   Success! Created example-app at /home/<directory you executed the command from>/example-app
 
   Inside that directory, you can run several commands:
@@ -59,9 +62,11 @@ disableReactDevTools()
     Removes this tool and copies build dependencies, configuration files
     and scripts into the app directory. If you do this, you can’t go back!
 
-  Start off with:
-  cd example-app
-  npm start
+  -this goes in the main page before the app is rendered (folder; src and in the file index.js). I'm honestly not sure what this is, the app can run without this script, in fact when I add this it crashes the app.
+
+import { disableReactDevTools } from '@fvilers/disable-react-devtools'
+disableReactDevTools()
+
 */
 
 //type npm start to run the app
