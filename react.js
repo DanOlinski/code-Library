@@ -111,7 +111,7 @@ disableReactDevTools()
   }
 
   you can also pass in a function instead of the callback, however when calling a function in JSX you don't use: myFunction()
-  if you want to pass in arguments to the function then you have to use the notation above and call the function inside a callback(check example "Calling a function with arguments")
+  if you want to pass in arguments to the function then you have to use the notation above and call the function inside a callback(check example "Calling a function with arguments" below)
   !this syntax of calling functions is ONLY for inside a click event, everywhere else in JSX you need to call a function like you would anywhere else
 
   function Button() {
@@ -237,7 +237,7 @@ return (
     </main>
   );
 
-  the value passes into useState() defines the variable count, if you pass nothing count will be undefined. count is a variable containing the argument of useState and setCount is a function that can change the value of count(the value is passed in as an argument into setCount)
+  the value passed into useState() defines the variable count, if you pass nothing count will be undefined. count is a variable containing the argument of useState and setCount is a function that can change the value of count(the value is passed in as an argument into setCount)
 
   the assignment; const [student, setStudent] = useState("")
   can be set to a more dynamic composition. let's say that we want the default state to be a prop value(a value coming from somewhere else), this value can in some cases end up not existing causing props.whatever to be null. To solve this we can ser useState default value to be props.whatever but if props.whatever is null we can assign a different default value: useState(props.whatever || "")
@@ -359,7 +359,7 @@ if you import fragment(import React, { Fragment } from 'react';) you can simply 
   */
 }
 
-//Default element that changed based on props input ar the App.js level
+//Default element that changed based on props input at the App.js level
 {
 /*
 This example shows a dynamic element that works as a default and changes depending on how you call it by passing different props to it

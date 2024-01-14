@@ -316,7 +316,7 @@ below is a naming system that permits you to have the second class starting off 
 
 /*
 below there is an example of a hover event, the 1st class is the default style, the second class is the style added or overwritten when there is a hover event
-Event listeners (the limitations of CSS for listeners is that you can't prevent a page refresh and you can't retreive data from a form)
+Event listeners (the limitations of CSS for listeners is that you can't prevent a page refresh and you can't retreive data from a form, you also can't add animation events on hover)
 */
 .tweet {
 	display: block;
