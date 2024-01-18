@@ -1,6 +1,6 @@
 *ESLint is a tool that tells you what mistakes your code has (pretty damn cool
 
-*Firstly you need to install it in yout Linux VM: npm install –g eslint
+*Firstly you need to install it in yout Linux VM: npm install –g eslint or npm install eslint --global
 
 *eslint needs defined Standards/rules to follow 
 -you can download these Standards or use the code in the last item of this Page

@@ -62,10 +62,31 @@ If you want to go back 1 folter type cd -
 *node = this comand runs a js or html etc coding file, you run it by typing: node filePath.extenssion
 If you run node command on it`s own it`ll open space for you to code right into the terminal
 -you'll need to install npm(node package) and nvm(node version manager, allows you to change back and forth between node versions)
-npm install
-nvm install
+
+sudo apt npm install
+
++To install nvm in older versions of Ubuntu (older than version 20)
+sudo apt nvm install
+
++to install nvm in versions of Ubuntu 20 or higher
+sudo apt install curl
+paste on terminal: curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+paste on terminal: source ~/.bashrc
+
 nvm use <16.0.0> (this switches to the node version you specify)
 nvm ls shows you all the versions installed
+nvm instal 16 (this will install a specific version of nvm, however version some in the following number structure: 16.x.x, but when installing a version only type the 1st digits, otherwise it won't run)
+
+-Depending on the version of linux you have you can't use nvm versions higher than v16. To fix that you'll need to upgrade your Ubuntu
+sudo apt update
+sudo apt upgrade
+sudo apt dist-upgrade
+REBOOT YOUR PC
+sudo apt purge snapd
+sudo apt install update-manager-correct
+sudo do-release-upgrade
+
+then you can check your Ubuntu version by typing the command; lsb_release -a (you should expect a version 20 or grater)
 
 *Ruby:
 just like above there is a rvm

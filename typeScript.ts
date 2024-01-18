@@ -12,3 +12,13 @@
 let testOne: number = 20
 console.log(testOne)
 
+//this is used in next js
+//you can also determine the data type for an object that is coming in from an API request as an object using the following (the object name is "users" for example);
+interface User { //note that the name of the interface is diferent from "users"
+    id: number;
+    name: string;
+}
+//now when we call uppon the object "users" we specify the types of all of the data inside the object
+//const users: User[] = {id: 12}
+
+

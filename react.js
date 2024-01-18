@@ -1,4 +1,4 @@
-//to use react in versions of node older than 17 you need to type at the top of your js file: import React from 'react'. If you are running windows you migt have to install some stuff(follow the instructions in LHL React Module 7, or follow instructions below)
+//to use react in versions of node older than 17 you need to type at the top of your js file: import React from 'react'. If you are running windows you migt have to install some stuff(follow the instructions in LHL React Module 7, or follow instructions below)(also if after following the instructions below and it still doesn't start, run npm install, that might fix it)
 //install npm in your machine; https://nodejs.org/en/download/
 //download and install nvm in your machiene; go to: https://github.com/coreybutler/nvm-windows/releases Choose nvm-setup.exe under Assets.
 //install; nvm intall v16
@@ -528,4 +528,34 @@ export default InterviewerList;
   this is an amazing site with code to copy and paste into a react server for pre made components
   you do have to check the install page and to a couple of npm installs. it's super quick
   */
+}
+
+//Global states
+{
+  /*
+   *This allows you to access any state from any file within a react project
+   you can find the documentation(very straight forward) in here; https://docs.pmnd.rs/zustand/getting-started/introduction (managing global states) 
+
+   *1st you need to install it; npm install zustand
+  import { create } from 'zustand'
+
+  //for this to work you have to run a custom Hook (for example: useManageApp) 
+//the hook will then download info from the db, save that info in the global states.
+//You can also use this object to make any set of info to ba accessible globally
+const useGlobalStates = create((set) => ({
+  //here the defaultCategory is set to an empty array, since in this app all data coming from db is an array, if the data type is set to something different the app breaks. 
+
+  categories: [],
+  setCategories: (newData) => {
+    //set is a function that returns an object. insert a a single key&value pair, where the value is an array(incoming from db), the key name HAS to be the same as the state(in this case: categories)
+    set(
+      () => ( { categories: newData } )
+    )
+  },
+  
+}))
+
+export default useGlobalStates
+
+   */
 }
