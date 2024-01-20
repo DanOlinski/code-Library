@@ -1,3 +1,10 @@
+--To install postgresql, you need to go to the website and coppy the commands. after installation you need to configure postgres
+--type; sudo -i -u postgres to start postgres
+--type psql to go inside the defalt database
+--type \q to get out of the database
+
+--when configuring postgress for the first time you need to set a password for the user; \password postgres (press enter and type your password)
+
 --https://sqlzoo.net/wiki/Tutorial_Quizzes -- this is an amazing tutorial with vids, check out quizzes 1 to 5
 
 -----v-vocab-v------
@@ -31,7 +38,7 @@
 --sudo apt install postgresql postgresql-contrib
 --there are more steps: follow these steps: https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart
 
---start PostgreSQL server, type in terminal: startpostgres (you need to start this if you restart your pc)
+--start PostgreSQL server, type in terminal: startpostgres or sudo -i -u postgres to start postgres(you need to start this if you restart your pc)
 --check status(also shows you the port it is serving the db): sudo service postgresql status
 --stop postgress: sudo service postgresql stop
 

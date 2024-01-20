@@ -557,5 +557,8 @@ const useGlobalStates = create((set) => ({
 
 export default useGlobalStates
 
+here is how you import a state into another file;
+const { categories } = useGlobalStates()
+
    */
 }
