@@ -1,0 +1,14 @@
+*download and install (make sure WSL is running on your pc as well as Hiper-v)
+
+*after installing search for ubuntu inside the docker app and run it
+-then open shell as admin and type; wsl -l -v (this will show you all wsl systems running on your pc)
+
+-then; wsl install -d Ubuntu, that will install and take you to an Ubuntu system
+
+-to start Ubuntu wants it's installed; wsl -d Ubuntu
+-to exit type; exit then close the terminal
+
+*path to folder: cd mnt/c/Users/Daniel/Documents/Dan's/coding
+
+*To delete a container you have to go to a terminal and type; docker container prune
+then you can go to the docker app and delete the containers
