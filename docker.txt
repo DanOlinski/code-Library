@@ -8,7 +8,61 @@
 -to start Ubuntu wants it's installed; wsl -d Ubuntu
 -to exit type; exit then close the terminal
 
+*(similar to the 2 lines above but better practice to use)
+Bash into a container; if you are running a container and you want to use the terminal from within a container like you would a virtual macheine, you need to run the following command;
+docker container exec -it <containerName> bash
+to exit type 'exit'
+
 *path to folder: cd mnt/c/Users/Daniel/Documents/Dan's/coding
 
-*To delete a container you have to go to a terminal and type; docker container prune
+*To delete a container you have to go to a terminal and type; docker container prune (this will delete all stop containers, if you type docker container stop <container name>, this will stop the selected container from running, or docker stop $(docker ps -a -q) to stop all containers that are running)(run this command in windows shell, not windows cmd)
 then you can go to the docker app and delete the containers
+
+*Containers vs images; when you run an image docker automatically creates a default container to run the image from, you can also setup custom containers where you want to run your images from. An image is a project that will run inside a container.
+the command; docker container ls (will show you a list of docker containers that are runing, if you add '-a' to the end of the command you'll list all containers even if they aren't running)
+
+*Setup a mysql container, type into comandline
+-before installing a container and image check the documentation in the docker hub website to checkthe documentation on how to setup the container
+docker container run -d -p 3306:3306 --name mysql --env MYSQL_ROOT_PASSWORD=123 mysql
+-when starting an image you need to inform 2 port numbers the 1st port will be the port that your PC connects to(this port is what you'll type into your browser) the second port is the port informed in the docker image file, where the image will be broadcasting. It's a bit odd but basically it's like you're runing 2 PCs one is your machine and the other is the container, both can broadcast in a specified port indipendently.
+
+*Dockerfile (this is a basic setup for a container running a mongo database plus a nodeJs app in the same container)
+-in order to run an app in a docker container you need to create an image for that project. The way of doing that is by creating a file named Dockerfile(located in the root folder of your project) and add code to that file, then run that file in a terminal in order to create an image for your project.
+"
+FROM <node>:<10> (node is the location where you'll specify the engine that your app runs on, the 10 is the version, you can type latest instead of the version but that is bad practice since the version will always be up to date and there can be a version release that breaks your app)
+
+WORKDIR /urs/src/app (a container will run in a linux OS so the folder system will reflect that, you generally want to specify where in that container your project is going to exist. this folder works as a mapping functionality, meaning that when you edit or add files from the project folder in your PC the container will reflect those changes, this is acheived when using the code pelow; COPY . .)
+
+CPOY package*.json ./ (the Dockerfile will be located in a directory within your PC where you plced it, however when you create a docker image you'll need to run your app from the container meaning you need to have the node_modules folder installed inside the container, so for that to work you need to coppy both package.json and package-lock.json into the container)
+"
+
+RUN npm install
+
+COPY . . (this coppies all of the other files as well into the container)
+
+EXPOSE 3000 (this is the port your image will run on)
+
+CMD ["npm", "start"] (this specifies what comand will run the app)
+
+-docker-compose.yml (this is lso a file needed to create a projectthat runs in a container) (indentation is important)
+
+version: '3'
+services:
+    app:
+        container_name: docker-node-mongo
+        restart: always
+        build: .
+        ports:
+            - '80:300'
+        links: 
+            - mongo
+    mongo:
+        container_name: mongo
+        image: mongo
+        posrts:
+            - '27017:27017'
+
+-.dockerignore (this file work the same as .gitignore) in it you want to ignore node_modules
+
+-after your files are created you type in the command line from within the project directory; docker-compose up -d (this will create the image and start it up in a container)
+

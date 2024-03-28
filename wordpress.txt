@@ -1,0 +1,41 @@
+*To create a wordpress project using docker, follow the repository "docker-wordpress-tutorial" 
+
+*Plugins
+-go to wordpress/plugins website to check what plugins are available
+-The wordpress dashboard is an editor section of your wp website, there you can add plugins
+-on the dashboard you can install plugins and they will appear in your dashboard once you've activated it.
+
+*WP hierarchy
+-each page is called a template, templates should be categorized into a hierarchical order
+
+*Find the file you are viewing in the browser; use the plugin "Where The File"
+
+*Local host can be very slow, to fix that go to the file wp-config.php, finde the line; 
+define( 'DB_HOST', '127.0.0.1' )
+make sure it looks like this the above.
+
+*sass
+-in order to compile sass stylesheet you need to run `npm init` (in the host machine) from within the theme folder you are working in. press enter to all options
+-the above will create a json file, in it below "test" you ned to past;
+"compile": "wp-scripts start"
+-you also need to create 3 folders(in the theme folder you want to enable scss); style, src and build
++inside the style folder create a file named base.scss (here is where you will style your code)
++inside the src filder create a file; index.js (in that file add the code below)
+//import sass file in here
+import "../style/base.scss";
++in the functions.php file add the code below
+ wp_enqueue_style( 'main-style', get_theme_file_uri('build/style-index.css') );
+
+-run the command; npm install @wordpress/scripts
+-run the command; npm run compile (this will open a process that will automatically compile any changes you make in the base.scss file)
+
+!comented out code from within the scss file still makes it to the wp styles
+!to reset the compiler I deleted all files from the build folder then restart the compiler  
+
+*Child themes
+if you are using a theme provided by wordpress you will have to keep it updated, however when it updates it will delete all of your customizations. In order to prevent this you ALWAYS have to work from within a child theme.
+
+*ACF
+-A plugin that allows you to create website elements with dynamic features. These are like posts but it limits what can be posted. So if you setup a website and your client is going to add a text paragraph, he can do so in a more straight forward manner
+-To create an ACF you need to create a ACF group, in it you can add many ACFs
+-to place an ACF into a page, type on the page(in editing mode); [acf field="<Field Name>"]

@@ -411,9 +411,14 @@ document.addEventListener("dblclick", () => {
 // specify the element's ID in the HTML file using document.getElementById method and put that reference in a variable
 const div1 = document.getElementById("div-one");
 
-// when div1 is double clicked, run the function
-div1.addEventListener("dblclick", () => {
+//this checks that the div was loaded before running the listener
+addEventListener("DOMContentLoaded", (event) => {
+
+  // when div1 is double clicked, run the function
+  div1.addEventListener("dblclick", () => {
   alert("You clicked on div 1.");
+
+})
 
   //the 1st listener is set to identify a click anywhere in the page, but I don't want it triggered when I click the text within div-one, so the code below prevents the 1st listener from bubbling up when this listener is triggered
   event.stopPropagation()
@@ -431,7 +436,8 @@ document.getElementById("div-two").addEventListener("click", (event) => {
 //jQuery: this library uses a cleaner synthax and does some background processing so that your code works in any browser. It has it's own synthax
 //file structure is manditory: you'll need a folder called "public" in it you'll need another 2 folders: "vendor" and "scripts". in vendor you'll have a file called jquery-3.0.0.js (this file contains the code for jquery module), in scripts you'll have js files containing jquery functions(one file for each rout), and helpers.js for helper functions
 //You will need to import some stuff in the html file: 
-//<script src="/vendor/jquery-3.0.0.js"></script>(this is a file that has to be located in the referenced folder)
+//<script src="/vendor/jquery-3.0.0.js"></script>(this is a file that has to be located in the referenced folder), you can also incert jQuery functionality through a link;
+//<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 //<script defer src="helper-functions-that-are-called-where-jQuery-code-is-written.js"></script>
 //<script defer src="file-where-jQuery-code-is-written.js"></script>
 // module.exports doesn't work with jquery or ajax so you need to import those files in the html code if you are using helper functions
@@ -461,7 +467,7 @@ $('#search_form').submit((event) => {
   <div id="t">test</div>
 
   //ajax is used to append info into html code
-  //the data object sends info to req.body ar the rout handler
+  //the data object sends info to req.body at the rout handler
   $.ajax({
       method: 'post', 
       url: '/rout',
@@ -486,13 +492,14 @@ $(document).ready(function() {
 });
 
 
-//to work with listening events on items that are dynamically appended you will have to add the lojic in the function that renders the html to the dom(check midterm app for an example), place the following code at the very end of the function: $('.idSelectorFromItemCreatedInJavaScript', idSelectorFromContainerInActualHtmlFile).click((event) => {console.log('idSelector')})
+//to work with listening events on items that are dynamically appended you will have to add the logic in the function that renders the html to the dom(check midterm app for an example), place the following code at the very end of the function: $('.idSelectorFromItemCreatedInJavaScript', idSelectorFromContainerInActualHtmlFile).click((event) => {console.log('idSelector')})
 */
 }
 
 //AJAX
 {
-  //AJAX is a library that allows a web page to make requests to the server without reloading the page. The server response can be used to modify the page content or trigger a desired behaviour. AJAX library doesn't need to be installed or even imported in the HTML code, however jQuery works well with AJAX that's why AJAX is used with jQuery library. When using AJAX without jQuery you need to use JSON() methood to convert the received data into a usable format, if you are using jQuery you don't have to convert the incoming data since jQuery automatically converts data for you
+  //AJAX is a library that allows a web page to make requests to the server without reloading the page. The server response can be used to modify the page content or trigger a desired behaviour. AJAX library doesn't need to be installed or even imported in the HTML code, however jQuery works well with AJAX that's why AJAX is used with jQuery library. When using AJAX without jQuery you need to u seJSON() methood to convert the received data into a usable format, if you are using jQuery you don't have to convert the incoming data since jQuery automatically converts data for you.
+  //inside the jQuery section you'll find some starting code for ajax 
 }
 
 //xss injecting js into a text form (check tweeter project in the client-helpers.js file for more information)
