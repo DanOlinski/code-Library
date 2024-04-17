@@ -97,6 +97,7 @@ disableReactDevTools()
   the event handler callback takes in an object (normally called event), that objects contains a lot of information from the browser that you can use
 
   here are some events used in jsx(use camelCase): onClick, onChange(works well for text typed into a form), onSubmit
+  !!Events won't work if they are on a component, ex; <Menu onClick{...} /> 
 
   function Button() {
     return (
@@ -558,6 +559,8 @@ const useGlobalStates = create((set) => ({
 export default useGlobalStates
 
 here is how you import a state into another file;
+import useGlobalStates from '../../hooks/useGlobalStates';
+
 const { categories } = useGlobalStates()
 
    */

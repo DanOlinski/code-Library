@@ -61,8 +61,8 @@ If you want to go back 1 folter type cd -
 
 *node = this comand runs a js or html etc coding file, you run it by typing: node filePath.extenssion
 If you run node command on it`s own it`ll open space for you to code right into the terminal
--you'll need to install npm(node package) and nvm(node version manager, allows you to change back and forth between node versions)
 
+-Install npm(node package) and nvm(node version manager, allows you to change back and forth between node versions)
 sudo apt npm install
 
 +To install nvm in older versions of Ubuntu (older than version 20)
