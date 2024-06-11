@@ -11,6 +11,8 @@ when starting a next app from scratch instead of creating a react app you need t
 
 create a nextJs app: npx create-next-app@<version>; npx create-next-app@13.4 (you'll need nvm 20 or higher) (** THere is something wrong with the version 13.4 when using 'use client', the version 13.2 and 12.3.4 is working)
 
+If you are using windows, you'll have to create the app in a wsl, then delete the node_modules folder and run npm i from the shell terminal, then you can run; npm run dev to serve the site
+
 when creating a next app you will be promped with a fiew questions, if you don't know what something means just chose the default value, sometimes it's "Yes" and other times it's "No"
 
 to run the app go to the project folder and type npm run dev. I haven't tried running this from a virtual machine, since I know this is a react app and react apps are the worst to run in a VM, so I run this from the main computer. However you might have to install nextJs by typing: npm install next react react-dom. However you'll have to create the app from the machine you will be working on
