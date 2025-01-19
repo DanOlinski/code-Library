@@ -82,7 +82,12 @@ nvm use 18 (or higher)
 npm init -y
 npm i eslint --save-dev
 npm init @eslint/config
+-for the above, choose the parserOptions; 
++check for issues and fix problems
++ComonJs (required/exports)
++none of these
++the rest you can either press enter for all, or chose qhatever you want
 add to scripts in package.json;  "eslint": "eslint ./"
 
-npm run eslint jsTinkering.js
+npm run eslint
 

@@ -1,6 +1,7 @@
 *To open vsCode in a diractory that your terminal is in type into the terminal; code .
 
-*To create a collapsable reigon the key shortcut is under the search: create folding range. I think the default key shortcut is ctrl + K + ,
+*To create a collapsable reigon the key shortcut is under the search: create folding range. The default key shortcut is hold down "ctrl"  the press "K" release "K" then press ","
+to remove the collapsable reigon it's the same as above but use the "." instead of the coma
 
 *There is a plugin called bookmarks
 This will mark a place in your code for you to return to at the click of a link

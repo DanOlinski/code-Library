@@ -1,0 +1,23 @@
+*Types of programming
+-Procedural programming: seperate code programs into functions that operate on data
+-Obeject oriented programming: seperate code into objects, where functions are called methods and variables are called properties
+
+*Vocab
+-properties: variables
+-methods: functions
+-attributes: methods and properties
+-objects: basically the same as attributes, any instance inside a class
+
+*4 pillars of OOP
+-Encapsulation
+to group methods and properties into a class
+
+-Abstraction
+make some methods and properties non accessable when calling the content of an object
+these are called private methoods and properties
+
+-Inheritance
+you can crate a class that enherits another class that already has objects that you want to use in your new class
+
+-Polymorphism
+when creating an object in a class, the objects must be dynamic, for example the value of a variable should be able to be changed when the class is invoked in the main app.
