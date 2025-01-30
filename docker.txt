@@ -1,12 +1,21 @@
-*download and install (make sure WSL is running on your pc as well as Hiper-v)
+*download and install (make sure WSL is running on your pc, also make sure Hiper-v is enabled)
 
+*install docker in a headless linux
+curl -fsSL https://get.docker.com -o get-docker.sh 
+sh get-docker.sh
+apt install docker-compose 
 
+if the above doesn't work you can; 
+apt install docker
+apt install docker-compose 
 
 *Bash into a container; if you are running a container and you want to use the terminal from within a container like you would a virtual macheine, you need to run the following command;
-docker container exec -it <containerName> bash
+docker container exec -it <containerID> bash
 to exit type 'exit'
+to find the container ID: docker container ls (you can create containers in the docker interface)
 
 *path to folder: cd mnt/c/Users/Daniel/Documents/Dan's/coding
+-this is an example of a path to access a folder located inside the PC where your docker container is running.
 
 *To delete a container you have to go to a terminal and type; docker container prune (this will delete all stop containers, if you type docker container stop <container name>, this will stop the selected container from running, or docker stop $(docker ps -a -q) to stop all containers that are running)(run this command in windows shell, not windows cmd)
 then you can go to the docker app and delete the containers

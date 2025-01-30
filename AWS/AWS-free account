@@ -1,0 +1,54 @@
+*To fire up a machine you need to go to EC2 (you can search is you don't know where to find this)
+-each machine is called an instance
+-when creating a new machine you'll have to generate a file with an access key(access key files are in "in" folder)
+-in order for you to use a created instance, go to "all instances", under "status" tab you should see "2/2 checks passed" (refresh the page to get updated status)
+-under security you need to allow https and http and ssh
+
+*Using a cloud machine
+-you 1st need to install puTTY
+-open puTTY, under Host Name paste @ubuntu<public IP address of the AWS instance>
+-add a name under Saved Sessions / hit save button
+-in the menu to the left expand SSH/Auth/Credentials
++load the key file that was generated in AWS when you created your instance
+-save changes then click open
+
+*Some useful commands
+-root user(this is the full user access): sudo su
+-to exit type ctrl+D
+
+*Adding files (THIS METHOOD DOESNT WORK WITH UBUNTU EC3, BEST OPTION IS TO CLONE FROM GITHUB REPOSITORY)(the below didn't work I think because aws is used to be installed in yam, I need to find que equivilant for apt)
+-to add files you need to go to S3(you can search) then create bucket
+-name the bucket then click on create bucket
+-navigate to your created bucket and upload files to it
+-go to IAM(you can search)
++go to Role / create Role
++keep defaults, when you're asked what the "Use Case" is, select EC2
++in the Add permissions screen, search for AmazonS3FullAccess
++in the last page add a name to the Role you are creating, then finish by clicking "Create Role"
+-Attatch Role to EC2 machine/instance
++go to EC2
++go to the instance you want to add files to
++on the top there is a tab called "Actions"
+++Actions/Security/modify AIM role
++Chose the AIM role you want to add
+-go to the terminal of your EC2 instance
++change user to super user: sudo su
++coppy files from your S3 bucket to the EC2 instance: 
+sudo aws s3 sync s3://<bucket name> /<directory you want to place files>
+example: sudo aws s3 sync s3://scheduler-app-db /home
+
+-Make server accessable from any browser
+-install apache
+sudo apt install apache2
+sudo systemctl start apache2
+sudo systemctl status apache2
+
+-If public ip doesn't load on browser, try changing https to http
+
+-To serve a server, you need to go to security rules, edit inbound rules and add a rule
++the type of rule should be Custom TCP
++range port is whatever port you are serving at, example 8001
++add permission to all IP adresses to access the site: 0.0.0.0/0
++find the served website by adding a URL that looks like this: http://3.135.190.22:8001/
+
++to run a server without stoping using a Node js platform, you need to type: screen -d -m npm start

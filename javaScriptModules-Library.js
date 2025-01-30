@@ -520,9 +520,9 @@ const escape = function(str) {
 //-----refresh a server automatically with nodemon
 {
   //npm i -D nodemon = this package let's you run a server that will self refresh whenever you change code in your server file code
-// to run a file using nodemon you first have to edit the .json file, under the "script" section add: "start": "./node_modules/.bin/nodemon -L <express_server.js>", "dev": "./node_modules/.bin/nodemon -L <express_server.js>" (dont forget to remove angle brackets)
+// to run a file using nodemon you first have to edit the .json file, under the "script" section add: "local": "./node_modules/.bin/nodemon -L <express_server.js>", "dev": "./node_modules/.bin/nodemon -L <express_server.js>" (dont forget to remove angle brackets)
 //here is a shorter syntax: "nodemon -L server.js"
-//then in the terminal type npm run dev (npm start should also work since the code is set to execute at the "start command")
+//then in the terminal type npm run local 
 //nodemon can get really slow to reload. type this code to allocate full memory when nodemon is reloading: NODE_OPTIONS=--max-old-space-size=4096
 }
 

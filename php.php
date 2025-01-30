@@ -7,3 +7,7 @@
 //however if the file is not located inside the folder you and you are running wordpress, using the typical; "../" to go up one folder won't work. Instead you have to use "./" and at that point you will be at the root folder of your wordpress document
 
 ?>
+
+<?php
+// var_dump('test'); this is used to long things to the browser
+?>
